@@ -32,5 +32,11 @@
     "@angular/compiler-cli": "^22.1.0",
     "prettier": "^3.8.1",
     "typescript": "~6.0.2"
+  },
+  "overrides": {
+    "lucide-angular": {
+      "@angular/common": "$@angular/common",
+      "@angular/core": "$@angular/core"
+    }
   }
 }
