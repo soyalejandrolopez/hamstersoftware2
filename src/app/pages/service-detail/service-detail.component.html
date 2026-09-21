@@ -1,0 +1,245 @@
+<!-- Service Detail Page Container -->
+<div class="service-page-wrap" *ngIf="service; else notFoundTemplate">
+  
+  <!-- Breadcrumbs & Header Bar -->
+  <div class="serv-top-bar">
+    <div class="container top-bar-container">
+      <a routerLink="/" fragment="servicios" class="back-link">
+        <lucide-icon [name]="icons.ArrowLeft" size="18"></lucide-icon>
+        <span>Volver a servicios</span>
+      </a>
+      <div class="serv-breadcrumbs">
+        <a routerLink="/">Inicio</a>
+        <span class="sep">/</span>
+        <a routerLink="/" fragment="servicios">Servicios</a>
+        <span class="sep">/</span>
+        <span class="category-crumb">{{ service.category }}</span>
+        <span class="sep">/</span>
+        <span class="curr">{{ service.title }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section of Service -->
+  <section class="serv-hero-section">
+    <div class="container serv-hero-container">
+      <div class="serv-hero-badge">
+        <span class="badge-num">Servicio {{ service.id }}</span>
+        <span class="badge-dot">·</span>
+        <span class="badge-category">{{ service.category }}</span>
+      </div>
+
+      <h1 class="serv-hero-title">{{ service.title }}</h1>
+      <p class="serv-hero-tagline">{{ service.tagline }}</p>
+
+      <div class="serv-hero-actions">
+        <a href="#cotizar" class="btn btn-primary btn-lg">
+          <span>Solicitar Cotización</span>
+          <lucide-icon [name]="icons.ArrowRight" size="18"></lucide-icon>
+        </a>
+        <a href="https://wa.me/573025790274?text=Hola%20Hamster%20Software,%20me%20gustar%C3%ADa%20agendar%20una%20consulta%20técnica%20sobre%20{{ service.title }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">
+          <span>Hablar con un Ingeniero</span>
+          <lucide-icon [name]="icons.ExternalLink" size="16"></lucide-icon>
+        </a>
+      </div>
+
+      <!-- Trust Badges -->
+      <div class="serv-trust-row">
+        <div class="serv-trust-item">
+          <lucide-icon [name]="icons.Check" size="16" class="trust-check"></lucide-icon>
+          <span>Equipo senior dedicado</span>
+        </div>
+        <div class="serv-trust-item">
+          <lucide-icon [name]="icons.Check" size="16" class="trust-check"></lucide-icon>
+          <span>Metodología ágil con entregas bisemanales</span>
+        </div>
+        <div class="serv-trust-item">
+          <lucide-icon [name]="icons.Check" size="16" class="trust-check"></lucide-icon>
+          <span>Soporte post-entrega y garantía de código</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview & Technical Content Grid -->
+  <section class="serv-details-section">
+    <div class="container">
+      <div class="serv-two-col-grid">
+        
+        <!-- Left: Main Information Column -->
+        <div class="serv-main-col">
+          
+          <!-- Visión General -->
+          <div class="content-card glass-card">
+            <h2>Descripción del Servicio</h2>
+            <p class="overview-paragraph">{{ service.overview }}</p>
+
+            <div class="value-prop-block">
+              <h3>Propuesta de Valor & Beneficios Clave</h3>
+              <ul class="value-prop-list">
+                <li *ngFor="let item of service.valueProposition">
+                  <div class="bullet-icon">
+                    <lucide-icon [name]="icons.ShieldCheck" size="16"></lucide-icon>
+                  </div>
+                  <span>{{ item }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Stack Tecnológico -->
+          <div class="content-card glass-card mt-6">
+            <h2>Stack Tecnológico & Herramientas</h2>
+            <div class="tech-grid">
+              <div class="tech-card" *ngFor="let tech of service.techStack">
+                <div class="tech-icon-wrap">
+                  <lucide-icon [name]="icons.Cpu" size="18"></lucide-icon>
+                </div>
+                <div class="tech-content">
+                  <h4>{{ tech.name }}</h4>
+                  <p>{{ tech.desc }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Entregables del Servicio -->
+          <div class="content-card glass-card mt-6">
+            <h2>Entregables Concretos del Proyecto</h2>
+            <ul class="deliverables-check-list">
+              <li *ngFor="let del of service.deliverables">
+                <div class="check-icon-wrap">
+                  <lucide-icon [name]="icons.Check" size="16"></lucide-icon>
+                </div>
+                <span>{{ del }}</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Metodología de Trabajo -->
+          <div class="content-card glass-card mt-6">
+            <h2>Metodología de Implementación</h2>
+            <div class="methodology-steps">
+              <div class="methodology-step" *ngFor="let m of service.methodology">
+                <span class="step-num">{{ m.step }}</span>
+                <div class="step-body">
+                  <h4>{{ m.title }}</h4>
+                  <p>{{ m.desc }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Preguntas Frecuentes (FAQs) -->
+          <div class="content-card glass-card mt-6">
+            <h2>Preguntas Frecuentes</h2>
+            <div class="faq-list">
+              <div class="faq-item" *ngFor="let faq of service.faqs">
+                <h4>{{ faq.q }}</h4>
+                <p>{{ faq.a }}</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Fast Quote Form Card & Info Sidebar -->
+        <div class="serv-sidebar-col">
+          
+          <!-- Fast Quote Form Card -->
+          <div id="cotizar" class="sidebar-card quote-card glass-card">
+            <h3>Cotiza {{ service.title }}</h3>
+            <p class="quote-intro">Conversa con nuestro equipo técnico y recibe una cotización detallada sin compromiso en menos de 24 horas.</p>
+
+            <form (ngSubmit)="sendWhatsAppLead()" class="quick-form">
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Tu nombre completo</mat-label>
+                <input matInput id="serv-lead-name" type="text" [(ngModel)]="contactForm.nombre" name="nombre" required />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Correo empresarial</mat-label>
+                <input matInput id="serv-lead-email" type="email" [(ngModel)]="contactForm.email" name="email" required />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Empresa u Organización</mat-label>
+                <input matInput id="serv-lead-empresa" type="text" [(ngModel)]="contactForm.empresa" name="empresa" />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Cuéntanos sobre tu necesidad</mat-label>
+                <textarea matInput id="serv-lead-msg" [(ngModel)]="contactForm.mensaje" name="mensaje" rows="3"></textarea>
+              </mat-form-field>
+
+              <button mat-flat-button color="primary" type="submit" class="w-full mat-submit-btn">
+                <span>Contactar por WhatsApp</span>
+                <lucide-icon [name]="icons.ArrowRight" size="16"></lucide-icon>
+              </button>
+            </form>
+
+            <div class="direct-contact-hint">
+              <span>Atención telefónica directa:</span>
+              <a href="tel:+573025790274" class="phone-link">+57 302 579 0274</a>
+            </div>
+          </div>
+
+          <!-- Service Guarantee & Trust Box -->
+          <div class="sidebar-card guarantee-box glass-card">
+            <div class="guarantee-header">
+              <lucide-icon [name]="icons.ShieldCheck" size="24" class="text-primary"></lucide-icon>
+              <h4>Compromiso Hamster Software</h4>
+            </div>
+            <ul class="guarantee-points">
+              <li>Código 100% transferido con documentación clara.</li>
+              <li>Pruebas de calidad y seguridad antes de producción.</li>
+              <li>Acuerdo de confidencialidad (NDA) para proteger tu propiedad intelectual.</li>
+              <li>Facturación legal y soporte técnico garantizado.</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services Section -->
+  <section class="related-section">
+    <div class="container">
+      <div class="related-header">
+        <h2>Servicios Complementarios en {{ service.category }}</h2>
+        <a routerLink="/" fragment="servicios" class="btn btn-outline btn-sm">Ver los 22 servicios</a>
+      </div>
+
+      <div class="related-grid">
+        <div *ngFor="let rel of relatedServices" class="related-card glass-card">
+          <div class="related-category">{{ rel.category }}</div>
+          <h3 class="related-title">{{ rel.title }}</h3>
+          <a [routerLink]="['/servicios', rel.slug]" class="related-link">
+            <span>Conocer más del servicio</span>
+            <lucide-icon [name]="icons.ArrowRight" size="14"></lucide-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- 404 Fallback Template if slug is not found -->
+<ng-template #notFoundTemplate>
+  <div class="not-found-wrap">
+    <div class="container text-center">
+      <div class="error-code">404</div>
+      <h2>Servicio no encontrado</h2>
+      <p>El servicio solicitado no se encuentra registrado o ha cambiado de enlace.</p>
+      <div class="mt-6">
+        <a routerLink="/" fragment="servicios" class="btn btn-primary">
+          <lucide-icon [name]="icons.ArrowLeft" size="16"></lucide-icon>
+          <span>Explorar todos los servicios</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</ng-template>

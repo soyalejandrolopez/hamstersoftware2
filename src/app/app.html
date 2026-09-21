@@ -1,0 +1,874 @@
+<!--
+██╗  ██╗ █████╗ ███╗   ███╗███████╗████████╗███████╗██████╗     ███████╗ ██████╗ ███████╗████████╗██╗    ██╗ █████╗ ██████╗ ███████╗
+██║  ██║██╔══██╗████╗ ████║██╔════╝╚══██╔══╝██╔════╝██╔══██╗    ██╔════╝██╔═══██╗██╔════╝╚══██╔══╝██║    ██║██╔══██╗██╔══██╗██╔════╝
+███████║███████║██╔████╔██║███████╗   ██║   █████╗  ██████╔╝    ███████╗██║   ██║█████╗     ██║   ██║ █╗ ██║███████║██████╔╝█████╗  
+██╔══██║██╔══██║██║╚██╔╝██║╚════██║   ██║   ██╔══╝  ██╔══██╗    ╚════██║██║   ██║██╔══╝     ██║   ██║███╗██║██╔══██║██╔══██╗██╔══╝  
+██║  ██║██║  ██║██║ ╚═╝ ██║███████║   ██║   ███████╗██║  ██║    ███████║╚██████╔╝██║        ██║   ╚███╔███╔╝██║  ██║██║  ██║███████╗
+╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝    ╚══════╝ ╚═════╝ ╚═╝        ╚═╝    ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝
+-->
+
+<!-- Header / Navbar -->
+<header class="navbar">
+  <!-- Barra de progreso de lectura interactiva -->
+  <div class="scroll-progress-bar" [style.width.%]="scrollProgress"></div>
+  
+  <div class="container navbar-container">
+    <a routerLink="/" class="logo">
+      <span class="logo-hamster">Hamster</span><span class="logo-software">Software</span>
+      <div class="logo-icon-wrap">
+        <svg viewBox="0 0 24 24" class="logo-svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect width="20" height="20" x="2" y="2" rx="6" fill="#0284c7" stroke="#0284c7"/>
+          <circle cx="12" cy="12" r="5" stroke="#ffffff" stroke-width="2"/>
+          <circle cx="12" cy="12" r="1.5" fill="#ffffff" stroke="none"/>
+          <line x1="12" y1="3" x2="12" y2="6" stroke="#ffffff" stroke-width="2"/>
+          <line x1="12" y1="18" x2="12" y2="21" stroke="#ffffff" stroke-width="2"/>
+          <line x1="3" y1="12" x2="6" y2="12" stroke="#ffffff" stroke-width="2"/>
+          <line x1="18" y1="12" x2="21" y2="12" stroke="#ffffff" stroke-width="2"/>
+        </svg>
+      </div>
+    </a>
+    
+    <nav class="nav-links">
+      <div class="nav-item has-dropdown mega-dropdown-container" (mouseenter)="isSolutionsMenuOpen = true" (mouseleave)="isSolutionsMenuOpen = false">
+        <a routerLink="/" fragment="soluciones" class="nav-link" (click)="toggleSolutionsMenu($event)">
+          <span>Soluciones</span>
+          <lucide-icon [name]="icons.ChevronDown" size="14" [class.rotated]="isSolutionsMenuOpen"></lucide-icon>
+        </a>
+
+        <!-- Mega Menu Soluciones Dropdown Panel -->
+        <div class="mega-menu" [class.open]="isSolutionsMenuOpen">
+          <div class="mega-menu-inner">
+            <div class="mega-menu-header">
+              <div class="mega-header-title">
+                <h3>Soluciones</h3>
+                <span class="mega-badge">18</span>
+              </div>
+              <a routerLink="/" fragment="soluciones" class="mega-header-link" (click)="closeSolutionsMenu()">
+                <span>Ver todas las soluciones</span>
+                <lucide-icon [name]="icons.ArrowRight" size="14"></lucide-icon>
+              </a>
+            </div>
+
+            <div class="mega-menu-grid">
+              <a *ngFor="let sol of solutions" [routerLink]="['/soluciones', sol.slug]" class="mega-item" (click)="closeSolutionsMenu()">
+                <div class="mega-item-content">
+                  <div class="mega-item-name">{{ sol.name }}</div>
+                  <div class="mega-item-sub">{{ sol.subtitle }}</div>
+                </div>
+                <div class="mega-item-icon">
+                  <lucide-icon [name]="icons.Layers" size="16"></lucide-icon>
+                </div>
+              </a>
+            </div>
+
+            <div class="mega-menu-footer">
+              <div class="mega-footer-text">
+                <strong>¿No encuentras lo que buscas?</strong> Cuéntanos tu idea y te proponemos la solución.
+              </div>
+              <a routerLink="/" fragment="contacto" class="btn btn-primary btn-sm" (click)="closeSolutionsMenu()">
+                <span>Hablemos</span>
+                <lucide-icon [name]="icons.ArrowRight" size="14"></lucide-icon>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item has-dropdown mega-dropdown-container" (mouseenter)="isServicesMenuOpen = true" (mouseleave)="isServicesMenuOpen = false">
+        <a routerLink="/" fragment="servicios" class="nav-link" (click)="toggleServicesMenu($event)">
+          <span>Servicios</span>
+          <lucide-icon [name]="icons.ChevronDown" size="14" [class.rotated]="isServicesMenuOpen"></lucide-icon>
+        </a>
+
+        <!-- Mega Menu Servicios Dropdown Panel -->
+        <div class="mega-menu mega-menu-servicios" [class.open]="isServicesMenuOpen">
+          <div class="mega-menu-inner">
+            <div class="mega-menu-header">
+              <div class="mega-header-title">
+                <h3>Servicios</h3>
+                <span class="mega-badge">22</span>
+              </div>
+              <a routerLink="/" fragment="servicios" class="mega-header-link" (click)="closeServicesMenu()">
+                <span>Ver todos los servicios</span>
+                <lucide-icon [name]="icons.ArrowRight" size="14"></lucide-icon>
+              </a>
+            </div>
+
+            <!-- Categorías Filters Tabs -->
+            <div class="services-tabs-bar">
+              <button 
+                type="button" 
+                class="tab-btn" 
+                [class.active]="selectedServiceCategory === 'all'" 
+                (click)="selectedServiceCategory = 'all'">
+                <span>Todos los servicios</span>
+                <span class="tab-count">22</span>
+              </button>
+              <button 
+                type="button" 
+                class="tab-btn" 
+                *ngFor="let cat of serviceCategories" 
+                [class.active]="selectedServiceCategory === cat.id" 
+                (click)="selectedServiceCategory = cat.id">
+                <span>{{ cat.name }}</span>
+                <span class="tab-count">{{ cat.count }}</span>
+              </button>
+            </div>
+
+            <!-- Categorized Columns Layout -->
+            <div class="services-categories-container">
+              <ng-container *ngFor="let cat of serviceCategories">
+                <div class="service-category-block" *ngIf="selectedServiceCategory === 'all' || selectedServiceCategory === cat.id">
+                  <div class="category-block-header">
+                    <h4>{{ cat.name }}</h4>
+                    <span class="category-count-badge">{{ cat.count }}</span>
+                  </div>
+                  <div class="category-items-grid">
+                    <a *ngFor="let item of cat.items" [routerLink]="['/servicios', item.slug]" class="service-item-link" (click)="closeServicesMenu()">
+                      <span class="item-link-text">{{ item.name }}</span>
+                      <lucide-icon [name]="icons.Code" size="15" class="item-link-icon"></lucide-icon>
+                    </a>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+
+            <!-- Footer Banner -->
+            <div class="mega-menu-footer">
+              <div class="mega-footer-text">
+                <strong>¿No encuentras lo que buscas?</strong> Cuéntanos tu idea y te proponemos la solución.
+              </div>
+              <a routerLink="/" fragment="contacto" class="btn btn-primary btn-sm" (click)="closeServicesMenu()">
+                <span>Hablemos</span>
+                <lucide-icon [name]="icons.ArrowRight" size="14"></lucide-icon>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a routerLink="/" fragment="industrias" class="nav-link">Industrias</a>
+      <a routerLink="/" fragment="proceso" class="nav-link">Proceso</a>
+      <a routerLink="/" fragment="contacto" class="nav-link">Contacto</a>
+    </nav>
+    
+    <div class="nav-actions">
+      <!-- Selector de Idioma con Google Translate -->
+      <div class="lang-dropdown-wrapper">
+        <button class="lang-selector" (click)="toggleLang($event)" aria-label="Cambiar idioma">
+          <span>{{ currentLang }}</span>
+          <lucide-icon [name]="icons.Globe" size="16"></lucide-icon>
+          <lucide-icon [name]="icons.ChevronDown" size="14" [class.rotated]="isLangDropdownOpen"></lucide-icon>
+        </button>
+
+        <div class="lang-menu" *ngIf="isLangDropdownOpen" (click)="$event.stopPropagation()">
+          <div class="lang-menu-header">
+          <span class="azure-badge">Google Translate</span>
+          </div>
+          <button 
+            *ngFor="let lang of availableLanguages" 
+            class="lang-menu-item" 
+            [class.active]="currentLangCode === lang.code"
+            (click)="changeLanguage(lang.code, lang.label)"
+          >
+            <span class="lang-code">{{ lang.label }}</span>
+            <span class="lang-name">{{ lang.name }}</span>
+            <lucide-icon *ngIf="currentLangCode === lang.code" [name]="icons.Check" size="14" class="lang-active-check"></lucide-icon>
+          </button>
+        </div>
+      </div>
+
+      <a routerLink="/" fragment="contacto" class="btn-sales">Contactar Ventas</a>
+    </div>
+
+    <button class="mobile-toggle" (click)="toggleMobileMenu()" aria-label="Abrir menú">
+      <lucide-icon [name]="isMobileMenuOpen ? icons.X : icons.Menu"></lucide-icon>
+    </button>
+  </div>
+  
+  <!-- Mobile Menu Drawer -->
+  <div class="mobile-menu" [class.open]="isMobileMenuOpen">
+    <a routerLink="/" fragment="soluciones" (click)="closeMobileMenu()">Soluciones</a>
+    <a routerLink="/" fragment="servicios" (click)="closeMobileMenu()">Servicios</a>
+    <a routerLink="/" fragment="industrias" (click)="closeMobileMenu()">Industrias</a>
+    <a routerLink="/" fragment="proceso" (click)="closeMobileMenu()">Proceso</a>
+    <a routerLink="/" fragment="contacto" (click)="closeMobileMenu()">Contacto</a>
+    <div class="mobile-menu-actions">
+      <div class="mobile-lang-grid">
+        <button 
+          *ngFor="let lang of availableLanguages" 
+          class="mobile-lang-btn"
+          [class.active]="currentLangCode === lang.code"
+          (click)="changeLanguage(lang.code, lang.label); closeMobileMenu()"
+        >
+          <span>{{ lang.label }}</span>
+        </button>
+      </div>
+      <a routerLink="/" fragment="contacto" (click)="closeMobileMenu()" class="btn-sales w-full text-center">Contactar Ventas</a>
+    </div>
+  </div>
+</header>
+
+<!-- Router Outlet for Individual Pages -->
+<router-outlet></router-outlet>
+
+<!-- Homepage Main Content (Rendered only on root '/') -->
+<main *ngIf="isHomePage">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-bg-image"></div>
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>EMPRESA DE DESARROLLO DE SOFTWARE</span>
+        </div>
+        
+        <h1 class="hero-title">
+          Construimos el <span class="highlight-software">software</span><br>
+          que tu empresa necesita
+        </h1>
+        
+        <div class="hero-subhead">
+          <p class="hero-subhead-bold">Somos una empresa de desarrollo de software en Popayán, Colombia.</p>
+          <p class="hero-subhead-desc">
+            Creamos aplicaciones web, móviles, sistemas de datos e inteligencia artificial para empresas que quieren crecer con tecnología. Desde la idea hasta la implementación.
+          </p>
+        </div>
+        
+        <div class="hero-buttons">
+          <a routerLink="/" fragment="contacto" (click)="scrollToContact($event)" class="btn-hero-primary">
+            <span>Agendar Consulta Gratis</span>
+            <span class="hero-arrow">&rarr;</span>
+          </a>
+          <a href="#servicios" class="btn-hero-secondary">
+            Ver Servicios
+          </a>
+        </div>
+
+        <div class="hero-trust-pills">
+          <div class="trust-pill">
+            <span>+50 proyectos entregados</span>
+            <lucide-icon [name]="icons.Check" size="14" class="trust-check"></lucide-icon>
+          </div>
+          <div class="trust-pill">
+            <span>100% a tiempo</span>
+            <lucide-icon [name]="icons.Check" size="14" class="trust-check"></lucide-icon>
+          </div>
+          <div class="trust-pill">
+            <span>Equipos dedicados</span>
+            <lucide-icon [name]="icons.Check" size="14" class="trust-check"></lucide-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 Core Pillars Cards & Social Proof -->
+  <section class="pillars-section">
+    <div class="container">
+      <div class="hero-pillars-grid">
+        <a href="#servicios" class="pillar-card glass-card">
+          <div class="pillar-top">
+            <h3>Páginas Web y Apps</h3>
+            <div class="pillar-icon"><lucide-icon [name]="icons.Globe" size="22"></lucide-icon></div>
+          </div>
+          <p>Sitios web, tiendas online y aplicaciones web a la medida.</p>
+        </a>
+        <a href="#servicios" class="pillar-card glass-card">
+          <div class="pillar-top">
+            <h3>Apps Móviles</h3>
+            <div class="pillar-icon"><lucide-icon [name]="icons.Smartphone" size="22"></lucide-icon></div>
+          </div>
+          <p>Aplicaciones para iPhone y Android para tu negocio.</p>
+        </a>
+        <a href="#servicios" class="pillar-card glass-card">
+          <div class="pillar-top">
+            <h3>Datos e IA</h3>
+            <div class="pillar-icon"><lucide-icon [name]="icons.BrainCircuit" size="22"></lucide-icon></div>
+          </div>
+          <p>Dashboards, análisis de datos y modelos de inteligencia artificial.</p>
+        </a>
+        <a href="#servicios" class="pillar-card glass-card">
+          <div class="pillar-top">
+            <h3>Ciberseguridad</h3>
+            <div class="pillar-icon"><lucide-icon [name]="icons.ShieldCheck" size="22"></lucide-icon></div>
+          </div>
+          <p>Protegemos tu empresa de vulnerabilidades y ataques.</p>
+        </a>
+      </div>
+
+      <div class="social-proof-bar glass-card">
+        <div class="avatars-group">
+          <span class="avatar">AL</span>
+          <span class="avatar">MR</span>
+          <span class="avatar">JC</span>
+          <span class="avatar">SP</span>
+        </div>
+        <div class="proof-info">
+          <div class="rating-stars">
+            <span class="score">5.0</span>
+            <div class="stars">
+              <lucide-icon [name]="icons.Star" size="14" class="star-icon fill-gold"></lucide-icon>
+              <lucide-icon [name]="icons.Star" size="14" class="star-icon fill-gold"></lucide-icon>
+              <lucide-icon [name]="icons.Star" size="14" class="star-icon fill-gold"></lucide-icon>
+              <lucide-icon [name]="icons.Star" size="14" class="star-icon fill-gold"></lucide-icon>
+              <lucide-icon [name]="icons.Star" size="14" class="star-icon fill-gold"></lucide-icon>
+            </div>
+            <span class="text-muted">calificación</span>
+          </div>
+          <p class="proof-caption">+50 proyectos entregados</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metric Stats Banner -->
+  <section class="stats-banner">
+    <div class="container grid grid-cols-4 stats-grid">
+      <div *ngFor="let s of stats" class="stat-card">
+        <span class="stat-number gradient-text">{{ s.value }}</span>
+        <span class="stat-label">{{ s.label }}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Section (22 Servicios) -->
+  <section id="servicios" class="section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Nuestros Servicios</span>
+        <h2>Todo lo que necesitas para impulsar tu negocio</h2>
+        <p>Desde pipelines de datos hasta apps móviles, cubrimos el ciclo completo de tu transformación digital.</p>
+      </div>
+
+      <div class="services-grid">
+        <div *ngFor="let s of specializedServices" class="service-card glass-card">
+          <div class="service-card-top">
+            <span class="service-id">{{ s.id }}</span>
+          </div>
+          <div class="service-card-header">
+            <h3 class="service-title">{{ s.title }}</h3>
+            <div class="service-badge-icon">
+              <lucide-icon [name]="icons.Code" size="20"></lucide-icon>
+            </div>
+          </div>
+          <p class="service-desc">{{ s.desc }}</p>
+
+          <ul class="service-features">
+            <li *ngFor="let f of s.features">
+              <span>{{ f }}</span>
+              <lucide-icon [name]="icons.Check" size="14" class="feature-icon"></lucide-icon>
+            </li>
+          </ul>
+
+          <div class="service-actions">
+            <a [routerLink]="['/servicios', s.slug]" class="btn-text">
+              <span>Conocer más</span>
+              <lucide-icon [name]="icons.ChevronRight" size="16"></lucide-icon>
+            </a>
+            <a href="#contacto" (click)="contactForm.servicio = s.title" class="btn btn-outline btn-xs">
+              Solicitar Cotización
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Soluciones Section (18 Soluciones) -->
+  <section id="soluciones" class="section solutions-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Soluciones</span>
+        <h2>Soluciones que transforman negocios</h2>
+        <p>Productos y plataformas listas para implementar en tu empresa, construidas con la energía y dedicación de un hámster en su rueda.</p>
+        <div class="mt-4">
+          <a href="https://hamstersoftware.com/soluciones" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+            Ver todas las soluciones
+            <lucide-icon [name]="icons.ExternalLink" size="14"></lucide-icon>
+          </a>
+        </div>
+      </div>
+
+      <div class="solutions-grid">
+        <div *ngFor="let sol of solutions" class="solution-card glass-card">
+          <div class="sol-header">
+            <span class="sol-num">{{ sol.num }}</span>
+            <span class="sol-subtitle">{{ sol.subtitle }}</span>
+          </div>
+          <h3 class="sol-title">{{ sol.name }}</h3>
+          <p class="sol-desc">{{ sol.desc }}</p>
+          <a [routerLink]="['/soluciones', sol.slug]" class="sol-link">
+            <span>Ver más</span>
+            <lucide-icon [name]="icons.ArrowRight" size="16"></lucide-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ciberseguridad y Monitoreo Section -->
+  <section class="section security-section">
+    <div class="container grid grid-cols-2 security-grid">
+      <div class="security-info">
+        <span class="section-tag">Ciberseguridad y Monitoreo</span>
+        <h2>Monitoreo proactivo de amenazas y vulnerabilidades</h2>
+        <p class="mt-4">
+          Ofrecemos monitoreo proactivo de amenazas y consulta pública de las vulnerabilidades y fallas más recientes (CVE).
+        </p>
+
+        <ul class="security-list mt-6">
+          <li>
+            <span>Monitoreo en tiempo real de CVEs</span>
+            <lucide-icon [name]="icons.ShieldCheck" size="20" class="text-accent"></lucide-icon>
+          </li>
+          <li>
+            <span>Auditorías de código y análisis estático</span>
+            <lucide-icon [name]="icons.Code" size="20" class="text-accent"></lucide-icon>
+          </li>
+          <li>
+            <span>Pruebas de penetración (Pen Testing)</span>
+            <lucide-icon [name]="icons.Lock" size="20" class="text-accent"></lucide-icon>
+          </li>
+          <li>
+            <span>Implementación de DevSecOps</span>
+            <lucide-icon [name]="icons.TerminalSquare" size="20" class="text-accent"></lucide-icon>
+          </li>
+        </ul>
+
+        <div class="mt-8">
+          <a href="#contacto" class="btn btn-primary">
+            <span>Explorar Vulnerabilidades</span>
+            <lucide-icon [name]="icons.ArrowRight" size="18"></lucide-icon>
+          </a>
+        </div>
+      </div>
+
+      <!-- Live Terminal Widget -->
+      <div class="terminal-card glass-card">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="terminal-status">
+            <span class="status-live-dot"></span>
+            <span class="status-text">Fuente: NVD · Actualizado ahora · LIVE</span>
+          </div>
+        </div>
+
+        <div class="terminal-body">
+          <div class="cve-row" *ngFor="let cve of cveData">
+            <div class="cve-top">
+              <span class="cve-badge" [class]="cve.severity | lowercase">{{ cve.severity }}</span>
+              <span class="cve-id">{{ cve.id }}</span>
+              <span class="cve-time">{{ cve.time }}</span>
+            </div>
+            <p class="cve-desc">{{ cve.desc }}</p>
+          </div>
+        </div>
+
+        <div class="terminal-footer">
+          <span>+128 CVEs monitoreados hoy</span>
+          <lucide-icon [name]="icons.Activity" size="16" class="text-accent"></lucide-icon>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Casos de Éxito / Portafolio -->
+  <section class="section portfolio-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Casos de Éxito</span>
+        <h2>Transformando ideas en experiencias digitales</h2>
+        <p>Conoce algunas de las soluciones de software y aplicaciones que hemos construido para llevar a nuestros clientes al siguiente nivel.</p>
+      </div>
+
+      <div class="portfolio-grid grid grid-cols-2">
+        <!-- Caso 1: Web Rentaya -->
+        <div class="case-card glass-card">
+          <div class="case-visual">
+            <div class="case-mockup-browser">
+              <div class="browser-bar">
+                <span class="browser-dot"></span>
+                <span class="browser-dot"></span>
+                <span class="browser-dot"></span>
+                <span class="browser-url">rentaya.com.co</span>
+              </div>
+              <div class="browser-content">
+                <span class="case-badge-pill">Plataforma Web</span>
+                <span class="case-badge-pill">WhatsApp Direct</span>
+                <span class="case-badge-pill">Inmuebles & Autos</span>
+                <span class="case-badge-pill">Filtros Avanzados</span>
+              </div>
+            </div>
+          </div>
+          <div class="case-body">
+            <span class="case-subtitle">rentaya.com.co · Plataforma Web</span>
+            <h3 class="case-title">Portal Web Inmobiliario & Automotriz</h3>
+            <p class="case-desc">
+              Compra, vende o alquila con total confianza. Conexión directa con propietarios y concesionarios mediante WhatsApp sin intermediarios innecesarios.
+            </p>
+            <div class="case-tags">
+              <span class="tag"><span>100% Verificado</span> <lucide-icon [name]="icons.Check" size="14"></lucide-icon></span>
+              <span class="tag"><span>WhatsApp Direct</span> <lucide-icon [name]="icons.Check" size="14"></lucide-icon></span>
+              <span class="tag"><span>Sin intermediarios</span> <lucide-icon [name]="icons.Check" size="14"></lucide-icon></span>
+            </div>
+            <a href="#contacto" class="btn btn-outline btn-sm mt-4">Quiero un proyecto similar</a>
+          </div>
+        </div>
+
+        <!-- Caso 2: Mobile App Rentaya -->
+        <div class="case-card glass-card">
+          <div class="case-visual">
+            <div class="case-mockup-mobile">
+              <div class="mobile-notch"></div>
+              <div class="mobile-content">
+                <span class="case-badge-pill">Mobile App</span>
+                <span class="case-badge-pill">Experiencia Rápida</span>
+                <span class="case-badge-pill">WhatsApp Direct</span>
+                <span class="case-badge-pill">Geolocalización</span>
+              </div>
+            </div>
+          </div>
+          <div class="case-body">
+            <span class="case-subtitle">Rentaya Mobile · iOS & Android</span>
+            <h3 class="case-title">App Móvil de Clasificados & Renta</h3>
+            <p class="case-desc">
+              Compra, vende o alquila con total confianza. Conexión directa con propietarios y concesionarios mediante WhatsApp sin intermediarios innecesarios.
+            </p>
+            <div class="case-tags">
+              <span class="tag"><span>Trato Directo</span> <lucide-icon [name]="icons.Check" size="14"></lucide-icon></span>
+              <span class="tag"><span>Notificaciones</span> <lucide-icon [name]="icons.Check" size="14"></lucide-icon></span>
+              <span class="tag"><span>Alta Velocidad</span> <lucide-icon [name]="icons.Check" size="14"></lucide-icon></span>
+            </div>
+            <a href="#contacto" class="btn btn-outline btn-sm mt-4">Quiero un proyecto similar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industrias Section -->
+  <section id="industrias" class="section industries-section">
+    <div class="container text-center">
+      <div class="section-header">
+        <span class="section-tag">Industrias</span>
+        <h2>Experiencia en todas las industrias</h2>
+        <p>Desde fintech hasta salud, hemos construido soluciones para empresas en todos los sectores.</p>
+      </div>
+
+      <div class="industries-cloud">
+        <mat-chip-set class="industries-mat-set">
+          <mat-chip *ngFor="let ind of industries" class="mat-ind-chip" matRipple>
+            <span class="chip-glow"></span>
+            <span>{{ ind }}</span>
+          </mat-chip>
+        </mat-chip-set>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo Trabajamos (Proceso) -->
+  <section id="proceso" class="section process-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Cómo Trabajamos</span>
+        <h2>Tres pasos hacia tu transformación digital</h2>
+        <p>Un proceso simple, transparente y eficiente para llevar tu proyecto de la idea a la realidad.</p>
+      </div>
+
+      <div class="process-grid grid grid-cols-3">
+        <div *ngFor="let p of processSteps" class="process-card glass-card">
+          <div class="process-number">{{ p.num }}</div>
+          <h3 class="process-title">{{ p.title }}</h3>
+          <p class="process-desc">{{ p.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto Section -->
+  <section id="contacto" class="section contact-section">
+    <div class="container grid grid-cols-2 contact-grid">
+      <!-- Columna Izquierda: Información -->
+      <div class="contact-info">
+        <span class="section-tag">Contacto</span>
+        <h2>¿Listo para llevar tus datos al siguiente nivel?</h2>
+        <p class="mt-4">
+          Agenda una consulta gratuita con nuestro equipo. Analizamos tu caso y te presentamos una propuesta personalizada en 48 horas.
+        </p>
+
+        <div class="contact-trust-points mt-6">
+          <div class="point-badge">
+            <span>Sin compromiso</span>
+            <lucide-icon [name]="icons.Check" size="16" class="text-accent"></lucide-icon>
+          </div>
+          <div class="point-badge">
+            <span>Respuesta en 24h</span>
+            <lucide-icon [name]="icons.Check" size="16" class="text-accent"></lucide-icon>
+          </div>
+          <div class="point-badge">
+            <span>100% confidencial</span>
+            <lucide-icon [name]="icons.Check" size="16" class="text-accent"></lucide-icon>
+          </div>
+        </div>
+
+        <div class="contact-details mt-8">
+          <a href="https://wa.me/573025790274" target="_blank" rel="noopener noreferrer" class="contact-item">
+            <div>
+              <div class="item-label">WhatsApp Directo</div>
+              <div class="item-value">+57 302 5790274</div>
+            </div>
+            <div class="item-icon"><lucide-icon [name]="icons.Phone" size="20"></lucide-icon></div>
+          </a>
+
+          <a href="mailto:info@hamstersoftware.com" class="contact-item">
+            <div>
+              <div class="item-label">Correo Electrónico</div>
+              <div class="item-value">info@hamstersoftware.com</div>
+            </div>
+            <div class="item-icon"><lucide-icon [name]="icons.Mail" size="20"></lucide-icon></div>
+          </a>
+
+          <div class="contact-item">
+            <div>
+              <div class="item-label">Ubicación</div>
+              <div class="item-value">Popayán, Cauca, Colombia</div>
+            </div>
+            <div class="item-icon"><lucide-icon [name]="icons.MapPin" size="20"></lucide-icon></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna Derecha: Formulario Interactivo con Angular Material -->
+      <div class="contact-form-card glass-card">
+        <form novalidate (ngSubmit)="sendWhatsApp($event)" class="contact-form">
+          <div class="mat-form-block">
+            <mat-form-field appearance="outline" class="w-full">
+              <mat-label>Nombre completo</mat-label>
+              <input 
+                matInput 
+                id="nombre" 
+                name="nombre" 
+                [(ngModel)]="contactForm.nombre" 
+              />
+            </mat-form-field>
+          </div>
+
+          <div class="form-row">
+            <mat-form-field appearance="outline" class="w-full">
+              <mat-label>Email empresarial</mat-label>
+              <input 
+                matInput 
+                type="email" 
+                id="email" 
+                name="email" 
+                [(ngModel)]="contactForm.email" 
+              />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-full">
+              <mat-label>Empresa u Organización</mat-label>
+              <input 
+                matInput 
+                type="text" 
+                id="empresa" 
+                name="empresa" 
+                [(ngModel)]="contactForm.empresa" 
+              />
+            </mat-form-field>
+          </div>
+
+          <div class="mat-form-block">
+            <mat-form-field appearance="outline" class="w-full">
+              <mat-label>Servicio de interés</mat-label>
+              <mat-select id="servicio" name="servicio" [(ngModel)]="contactForm.servicio">
+                <mat-option *ngFor="let s of specializedServices" [value]="s.title">{{ s.title }}</mat-option>
+                <mat-option value="Otra consulta">Otra consulta</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="mat-form-block">
+            <mat-form-field appearance="outline" class="w-full">
+              <mat-label>Cuéntanos sobre tu proyecto o necesidad</mat-label>
+              <textarea 
+                matInput 
+                id="mensaje" 
+                name="mensaje" 
+                rows="4" 
+                [(ngModel)]="contactForm.mensaje" 
+              ></textarea>
+            </mat-form-field>
+          </div>
+
+          <button mat-flat-button color="primary" type="submit" class="w-full mat-submit-btn mat-cta-btn">
+            <span>Agendar Consulta</span>
+            <lucide-icon [name]="icons.MessageSquare" size="18"></lucide-icon>
+          </button>
+
+          <p class="form-disclaimer text-center mt-3">
+            Al enviar, se abrirá WhatsApp con tu mensaje prellenado. Respuesta en 24h.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container footer-content">
+    <div class="footer-top grid grid-cols-4">
+      <div class="footer-brand-col">
+        <a routerLink="/" class="logo">
+          <span class="logo-hamster">Hamster</span><span class="logo-software">Software</span>
+          <div class="logo-icon-wrap">
+            <svg viewBox="0 0 24 24" class="logo-svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="20" x="2" y="2" rx="6" fill="#0284c7" stroke="#0284c7"/>
+              <circle cx="12" cy="12" r="5" stroke="#ffffff" stroke-width="2"/>
+              <circle cx="12" cy="12" r="1.5" fill="#ffffff" stroke="none"/>
+              <line x1="12" y1="3" x2="12" y2="6" stroke="#ffffff" stroke-width="2"/>
+              <line x1="12" y1="18" x2="12" y2="21" stroke="#ffffff" stroke-width="2"/>
+              <line x1="3" y1="12" x2="6" y2="12" stroke="#ffffff" stroke-width="2"/>
+              <line x1="18" y1="12" x2="21" y2="12" stroke="#ffffff" stroke-width="2"/>
+            </svg>
+          </div>
+        </a>
+        <p class="footer-bio mt-3">
+          Desde Popayán, transformamos datos en decisiones inteligentes. Soluciones de software con la energía y dedicación de un hámster en su rueda.
+        </p>
+        <p class="footer-rues mt-3 text-muted">
+          Razón social legalmente constituida y registrada en la Cámara de Comercio del Cauca. Registro Único Empresarial y Social (RUES).
+        </p>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#industrias">Industrias</a></li>
+          <li><a href="#proceso">Proceso</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a [routerLink]="['/servicios', 'data-engineering']">Ingeniería de Datos</a></li>
+          <li><a [routerLink]="['/servicios', 'data-extraction-etl']">Extracción de Datos / ETL</a></li>
+          <li><a [routerLink]="['/servicios', 'data-visualization']">Visualización de Datos</a></li>
+          <li><a [routerLink]="['/servicios', 'data-mining-management']">Minería y Gestión de Datos</a></li>
+          <li><a [routerLink]="['/servicios', 'desktop-software']">Software de Escritorio</a></li>
+          <li><a [routerLink]="['/servicios', 'machine-learning']">Machine Learning</a></li>
+          <li><a [routerLink]="['/servicios', 'mobile-development']">Desarrollo Móvil</a></li>
+          <li><a [routerLink]="['/servicios', 'on-demand-systems']">Sistemas Bajo Demanda</a></li>
+          <li><a routerLink="/" fragment="servicios" class="link-highlight">Ver todos los servicios &rarr;</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Soluciones</h4>
+        <ul>
+          <li><a [routerLink]="['/soluciones', 'vulnerabilities']">Vulnerabilidades</a></li>
+          <li><a [routerLink]="['/soluciones', 'seismic-monitoring']">Monitoreo Sísmico</a></li>
+          <li><a [routerLink]="['/soluciones', 'sports-results']">Resultados Deportivos</a></li>
+          <li><a [routerLink]="['/soluciones', 'sales-analytics']">Análisis de Ventas</a></li>
+          <li><a [routerLink]="['/soluciones', 'radio-streaming']">Radio Streaming</a></li>
+          <li><a [routerLink]="['/soluciones', 'telemedicine']">Sistema Telemedicina</a></li>
+          <li><a [routerLink]="['/soluciones', 'ticketing']">Reserva y Boletos</a></li>
+          <li><a [routerLink]="['/soluciones', 'odoo-erp']">Sistema Odoo CRM</a></li>
+          <li><a routerLink="/" fragment="soluciones" class="link-highlight">Ver todas las soluciones &rarr;</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Hamster Software. Todos los derechos reservados.</p>
+      <div class="footer-bottom-info">
+        <span>Popayán, Cauca, Colombia</span>
+        <span class="sep">·</span>
+        <a href="mailto:info@hamstersoftware.com">info@hamstersoftware.com</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Custom Material Right-Click Context Menu -->
+<div 
+  *ngIf="isContextMenuOpen" 
+  class="custom-context-menu" 
+  [style.left.px]="contextMenuPosition.x" 
+  [style.top.px]="contextMenuPosition.y"
+  (click)="$event.stopPropagation()"
+>
+  <div class="context-menu-header">
+    <div class="brand-badge">
+      <span class="brand-dot"></span>
+      <span class="brand-name">Hamster Software</span>
+    </div>
+  </div>
+
+  <div class="context-menu-divider"></div>
+
+  <div class="context-menu-items">
+    <button class="context-menu-btn" (click)="navigateTo('/', 'contacto')">
+      <span>Cotizar Proyecto</span>
+      <lucide-icon [name]="icons.MessageSquare" size="15" class="menu-icon text-primary"></lucide-icon>
+    </button>
+
+    <button class="context-menu-btn" (click)="navigateTo('/', 'servicios')">
+      <span>Servicios (22)</span>
+      <lucide-icon [name]="icons.Layers" size="15" class="menu-icon"></lucide-icon>
+    </button>
+
+    <button class="context-menu-btn" (click)="navigateTo('/', 'soluciones')">
+      <span>Soluciones (18)</span>
+      <lucide-icon [name]="icons.Zap" size="15" class="menu-icon"></lucide-icon>
+    </button>
+
+    <button class="context-menu-btn" (click)="navigateTo('/', 'portafolio')">
+      <span>Casos de Éxito</span>
+      <lucide-icon [name]="icons.Compass" size="15" class="menu-icon"></lucide-icon>
+    </button>
+
+    <div class="context-menu-divider"></div>
+
+    <button class="context-menu-btn" (click)="copyCurrentUrl()">
+      <span>Copiar enlace de página</span>
+      <lucide-icon [name]="icons.Copy" size="15" class="menu-icon"></lucide-icon>
+    </button>
+
+    <button class="context-menu-btn" (click)="contactWhatsAppDirect()">
+      <span>Hablar por WhatsApp</span>
+      <lucide-icon [name]="icons.Phone" size="15" class="menu-icon text-success"></lucide-icon>
+    </button>
+
+    <button class="context-menu-btn" (click)="reloadCurrentPage()">
+      <span>Recargar vista</span>
+      <lucide-icon [name]="icons.RefreshCw" size="15" class="menu-icon"></lucide-icon>
+    </button>
+  </div>
+</div>
+
+<!-- Copied to clipboard feedback toast -->
+<div *ngIf="copiedNotification" class="context-toast animate-fade-in-up">
+  <span>¡Enlace copiado al portapapeles!</span>
+  <lucide-icon [name]="icons.Check" size="16" class="toast-check"></lucide-icon>
+</div>
+
+<!-- Botón flotante para volver arriba con suavidad -->
+<button 
+  *ngIf="showBackToTop" 
+  (click)="scrollToTop()" 
+  class="btn-back-to-top animate-fade-in-up" 
+  aria-label="Volver arriba"
+  matTooltip="Subir al inicio"
+>
+  <lucide-icon [name]="icons.ChevronUp" size="20"></lucide-icon>
+</button>
+
+

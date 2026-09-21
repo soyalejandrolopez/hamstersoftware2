@@ -1,0 +1,674 @@
+@use '@angular/material' as mat;
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ==========================================================================
+   Hamster Software - Sistema de Diseño Global (Modo Blanco Corporativo)
+   Diseñado con toda la elegancia en Popayán, Cauca, Colombia.
+   Aquí definimos las variables de color, tipografía y sombras de la plataforma.
+   ========================================================================== */
+
+:root {
+  /* Paleta de Colores - Modo Claro Corporativo impecable */
+  --color-bg: #ffffff;             /* Fondo principal bien blanco */
+  --color-bg-subtle: #f8fafc;      /* Tono grisecito suave para descansos visuales */
+  --color-surface: #ffffff;        /* Superficie de tarjetas y contenedores */
+  --color-surface-hover: #f1f5f9;  /* Resalte bacano al pasar el puntero */
+  --color-border: #e2e8f0;         /* Líneas y bordes limpios */
+  --color-border-light: #f1f5f9;   /* Bordes más tenues */
+  
+  /* Colores de Marca - Azules tecnológicos */
+  --color-primary: #2563eb;        /* Azul corporativo principal */
+  --color-primary-hover: #1d4ed8;  /* Azul oscuro para cuando se oprime o pasa el mouse */
+  --color-primary-light: #3b82f6;  /* Azul vivo */
+  --color-secondary: #0284c7;      /* Azul cielo complementario */
+  
+  /* Tipografía y Textos - Contraste firme y legible */
+  --color-text-main: #0f172a;      /* Texto principal bien oscuro para que se lea clarito */
+  --color-text-muted: #64748b;     /* Texto secundario para descripciones */
+  --color-text-accent: #2563eb;    /* Acento para links y destacados */
+  
+  /* Estados del Sistema */
+  --color-success: #10b981;        /* Verde éxito */
+  --color-warning: #f59e0b;        /* Amarillo alerta */
+  --color-danger: #ef4444;         /* Rojo crítico */
+
+  /* Fuente base */
+  --font-main: 'Inter', system-ui, sans-serif;
+  
+  /* Degradados modernos */
+  --gradient-primary: linear-gradient(135deg, #2563eb, #0284c7);
+  --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+  
+  /* Sombras y elevaciones suaves */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.07);
+  --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.12);
+  --glass-bg: #ffffff;
+  --glass-border: 1px solid #e2e8f0;
+  --glass-blur: blur(8px);
+
+  /* Tiempos de animación para que todo responda suave */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* ==========================================================================
+   Reset & Base Styles
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  /* Evita el desplazamiento del body causado por la barra de Google Translate */
+  top: 0 !important;
+}
+
+/* ==========================================================================
+   Google Translate - Ocultamos la barra nativa para usar nuestro propio selector
+   El widget de Google inyecta un iframe con toolbar; lo escondemos para que solo
+   funcione nuestra UI personalizada del dropdown de idiomas.
+   ¡OJO! No usar display:none en .skiptranslate porque el <select> .goog-te-combo
+   vive adentro y debe existir en el DOM para que la traducción funcione.
+   ========================================================================== */
+
+/* Barra superior (iframe) que Google pone en la parte de arriba de la página */
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+/* El contenedor .skiptranslate tiene el <select> adentro; lo hacemos invisible sin sacarlo del DOM */
+body > .skiptranslate {
+  height: 0 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+}
+
+/* Tooltips y popups de Google Translate */
+#goog-gt-tt,
+.goog-tooltip,
+.goog-tooltip:hover {
+  display: none !important;
+}
+
+/* Evitamos que el gadget muestre texto o bordes feos en la página */
+.goog-te-gadget {
+  font-size: 0 !important;
+  color: transparent !important;
+}
+
+/* Google Translate agrega una clase .translated-ltr al <html>; neutralizamos el margen top */
+html.translated-ltr {
+  margin-top: 0 !important;
+}
+html.translated-ltr body {
+  top: 0 !important;
+}
+
+/* ==========================================================================
+   Typography Utilities
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text-main);
+}
+
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ==========================================================================
+   Layout & Grid Utilities
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 5.5rem 0;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 1024px) {
+  .grid-cols-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-cols-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 4rem 0; }
+  .grid-cols-4, .grid-cols-3, .grid-cols-2 { grid-template-columns: repeat(1, 1fr); }
+}
+
+/* ==========================================================================
+   Components (Buttons, Badges)
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  border: none;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+}
+
+.btn-outline {
+  background: #ffffff;
+  color: var(--color-text-main);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-outline:hover {
+  background: var(--color-surface-hover);
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+}
+
+.btn-xs {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+  border-radius: 6px;
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  border-radius: 8px;
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Stagger delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+
+/* Card base */
+.glass-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================================================
+   Ajustes de Angular Material - Estilo Corporativo Colombiano Impecable
+   Aquí dejamos los inputs y botones bien elegantes, sin que se crucen los textos.
+   ========================================================================== */
+.mat-mdc-form-field {
+  width: 100%;
+  margin-bottom: 0.85rem;
+  font-family: var(--font-main) !important;
+  display: block;
+
+  /* Cajoncito del campo de texto con fondo blanco y sombra suave */
+  .mat-mdc-text-field-wrapper {
+    background-color: #ffffff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04) !important;
+    transition: box-shadow var(--transition-fast) !important;
+  }
+
+  /* Tokens de borde de Angular Material MDC para outline limpio */
+  --mdc-outlined-text-field-outline-color: #cbd5e1;
+  --mdc-outlined-text-field-focus-outline-color: var(--color-primary);
+  --mdc-outlined-text-field-hover-outline-color: #94a3b8;
+  --mdc-outlined-text-field-outline-width: 1.5px;
+  --mdc-outlined-text-field-focus-outline-width: 2px;
+
+  /* Contorno MDC sin líneas verticales parásitas ni cortes de label */
+  .mdc-notched-outline__leading,
+  .mdc-notched-outline__notch,
+  .mdc-notched-outline__trailing {
+    border-color: #cbd5e1 !important;
+    transition: border-color var(--transition-fast) !important;
+  }
+
+  .mdc-notched-outline__leading {
+    border-right: none !important;
+    border-top-left-radius: 12px !important;
+    border-bottom-left-radius: 12px !important;
+  }
+
+  .mdc-notched-outline__notch {
+    border-left: none !important;
+    border-right: none !important;
+  }
+
+  .mdc-notched-outline--notched .mdc-notched-outline__notch {
+    border-top: none !important;
+  }
+
+  .mdc-notched-outline__trailing {
+    border-left: none !important;
+    border-top-right-radius: 12px !important;
+    border-bottom-right-radius: 12px !important;
+  }
+
+  /* Efecto al pasar el cursor (hover) para dar respuesta visual */
+  &:hover {
+    .mat-mdc-text-field-wrapper {
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06) !important;
+    }
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__notch,
+    .mdc-notched-outline__trailing {
+      border-color: #94a3b8 !important;
+    }
+  }
+
+  /* Cuando el usuario se para en el campo (foco activo) le ponemos el resplandor azul */
+  &.mat-focused {
+    .mat-mdc-text-field-wrapper {
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12) !important;
+      background-color: #ffffff !important;
+    }
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__notch,
+    .mdc-notched-outline__trailing {
+      border-color: var(--color-primary) !important;
+    }
+    .mdc-notched-outline__leading {
+      border-right: none !important;
+    }
+    .mdc-notched-outline__notch {
+      border-left: none !important;
+      border-right: none !important;
+    }
+    .mdc-notched-outline--notched .mdc-notched-outline__notch {
+      border-top: none !important;
+    }
+    .mdc-notched-outline__trailing {
+      border-left: none !important;
+    }
+    .mdc-floating-label {
+      color: var(--color-primary) !important;
+      font-weight: 600 !important;
+    }
+  }
+
+  /* Ocultamos el espacio inferior extra cuando no hay mensajes de error */
+  .mat-mdc-form-field-subscript-wrapper {
+    display: none;
+  }
+
+  /* La etiqueta flotante para que quede clara y en su sitio */
+  .mdc-floating-label {
+    color: #64748b !important;
+    font-size: 0.92rem !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  /* El texto que teclea la persona */
+  input.mat-mdc-input-element,
+  textarea.mat-mdc-input-element {
+    color: #0f172a !important;
+    font-family: var(--font-main) !important;
+    font-size: 0.95rem !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    caret-color: var(--color-primary) !important;
+  }
+
+  .mat-mdc-select-value {
+    color: #0f172a !important;
+    font-family: var(--font-main) !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+  }
+
+  .mat-mdc-select-arrow svg {
+    fill: #64748b !important;
+    transition: transform var(--transition-fast);
+  }
+
+  &.mat-focused .mat-mdc-select-arrow svg {
+    fill: var(--color-primary) !important;
+  }
+}
+
+/* Campos de formulario nativos de respaldo (por si las moscas) */
+input[type="text"]:not(.mat-mdc-input-element),
+input[type="email"]:not(.mat-mdc-input-element),
+input[type="tel"]:not(.mat-mdc-input-element),
+select:not(.mat-mdc-select),
+textarea:not(.mat-mdc-input-element) {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 1.5px solid #e2e8f0;
+  background-color: #ffffff;
+  color: #0f172a;
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  outline: none;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  transition: all var(--transition-fast);
+
+  &:hover {
+    border-color: #94a3b8;
+  }
+
+  &:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+  }
+}
+
+/* Botón de envío llamativo con degradado corporativo */
+.mat-submit-btn,
+.mat-cta-btn {
+  height: 52px !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  background: var(--gradient-primary) !important;
+  color: #ffffff !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.6rem !important;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3) !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+
+  .mdc-button__label {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.6rem !important;
+    width: 100% !important;
+  }
+
+  &:hover {
+    box-shadow: 0 8px 22px rgba(37, 99, 235, 0.42) !important;
+    transform: translateY(-2px) !important;
+  }
+
+  &:active {
+    transform: translateY(0) !important;
+  }
+}
+
+section[id] {
+  scroll-margin-top: 85px;
+}
+
+/* Pastillas de industrias (chips) bien estilizadas */
+.mat-mdc-chip-set {
+  .mat-mdc-chip {
+    background-color: #f1f5f9 !important;
+    color: var(--color-text-main) !important;
+    border: 1px solid var(--color-border) !important;
+    border-radius: 20px !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: #e2e8f0 !important;
+      border-color: #cbd5e1 !important;
+    }
+  }
+}
+
+/* ==========================================================================
+   Menú Contextual Personalizado al hacer Clic Derecho
+   ¡Para que el usuario navegue al tiro con todas las de la ley!
+   ========================================================================== */
+.custom-context-menu {
+  position: fixed;
+  z-index: 99999;
+  width: 230px;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.16), 0 2px 8px rgba(15, 23, 42, 0.06);
+  padding: 6px;
+  animation: contextFadeIn 0.14s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  user-select: none;
+}
+
+@keyframes contextFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.context-menu-header {
+  padding: 8px 10px 6px 10px;
+
+  .brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    .brand-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #2563eb;
+      box-shadow: 0 0 6px rgba(37, 99, 235, 0.6);
+    }
+
+    .brand-name {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #64748b;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.context-menu-divider {
+  height: 1px;
+  background-color: #f1f5f9;
+  margin: 4px 6px;
+}
+
+.context-menu-items {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.context-menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: #1e293b;
+  font-family: var(--font-main);
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  .menu-icon {
+    color: #64748b;
+    flex-shrink: 0;
+    transition: color 0.15s ease, transform 0.15s ease;
+  }
+
+  &:hover {
+    background-color: #f1f5f9;
+    color: #2563eb;
+
+    .menu-icon {
+      color: #2563eb;
+      transform: scale(1.08);
+    }
+  }
+
+  &:active {
+    background-color: #e2e8f0;
+    transform: scale(0.98);
+  }
+}
+
+/* Toast feedback when copying URL */
+.context-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100000;
+  background: #0f172a;
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+  .toast-check {
+    color: #34d399;
+  }
+}
+
+/* ==========================================================================
+   Barra de Progreso de Lectura Superior
+   Muestra qué tanto ha bajado el usuario en la página.
+   ========================================================================== */
+.scroll-progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3.5px;
+  background: linear-gradient(90deg, #2563eb 0%, #0284c7 50%, #38bdf8 100%);
+  z-index: 9999;
+  transition: width 0.08s ease-out;
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+}
+
+/* ==========================================================================
+   Botoncito Flotante "Volver Arriba" (Back to Top)
+   Aparece al bajar 450px para regresar suavemente al inicio.
+   ========================================================================== */
+.btn-back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9998;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.12), 0 2px 6px rgba(15, 23, 42, 0.06);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    background: #2563eb;
+    color: #ffffff;
+    border-color: #2563eb;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+  }
+
+  &:active {
+    transform: translateY(-1px) scale(0.96);
+  }
+}
+
+
+

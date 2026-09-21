@@ -1,0 +1,227 @@
+<!-- Solution Detail Page Container -->
+<div class="solution-page-wrap" *ngIf="solution; else notFoundTemplate">
+  
+  <!-- Breadcrumbs & Header Bar -->
+  <div class="sol-top-bar">
+    <div class="container top-bar-container">
+      <a routerLink="/" class="back-link">
+        <lucide-icon [name]="icons.ArrowLeft" size="18"></lucide-icon>
+        <span>Volver al inicio</span>
+      </a>
+      <div class="sol-breadcrumbs">
+        <a routerLink="/">Inicio</a>
+        <span class="sep">/</span>
+        <span>Soluciones</span>
+        <span class="sep">/</span>
+        <span class="curr">{{ solution.name }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section of Solution -->
+  <section class="sol-hero-section">
+    <div class="container sol-hero-container">
+      <div class="sol-hero-badge">
+        <span class="badge-num">Solución {{ solution.num }}</span>
+        <span class="badge-dot">·</span>
+        <span class="badge-category">{{ solution.subtitle }}</span>
+      </div>
+
+      <h1 class="sol-hero-title">{{ solution.name }}</h1>
+      <p class="sol-hero-tagline">{{ solution.tagline }}</p>
+
+      <div class="sol-hero-actions">
+        <a href="#cotizar" class="btn btn-primary btn-lg">
+          <span>Cotizar esta solución</span>
+          <lucide-icon [name]="icons.ArrowRight" size="18"></lucide-icon>
+        </a>
+        <a href="https://wa.me/573025790274?text=Hola%20Hamster%20Software,%20me%20gustar%C3%ADa%20agendar%20una%20demostraci%C3%B3n%20de%20{{ solution.name }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">
+          <span>Solicitar Demo en Vivo</span>
+          <lucide-icon [name]="icons.ExternalLink" size="16"></lucide-icon>
+        </a>
+      </div>
+
+      <!-- Trust Badges -->
+      <div class="sol-trust-row">
+        <div class="sol-trust-item">
+          <lucide-icon [name]="icons.Check" size="16" class="trust-check"></lucide-icon>
+          <span>Desarrollo e implementación llave en mano</span>
+        </div>
+        <div class="sol-trust-item">
+          <lucide-icon [name]="icons.Check" size="16" class="trust-check"></lucide-icon>
+          <span>Soporte técnico y mantenimiento continuo</span>
+        </div>
+        <div class="sol-trust-item">
+          <lucide-icon [name]="icons.Check" size="16" class="trust-check"></lucide-icon>
+          <span>Código fuente y propiedad intelectual para el cliente</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview & Technical Specs Grid -->
+  <section class="sol-details-section">
+    <div class="container">
+      <div class="sol-two-col-grid">
+        
+        <!-- Left: Overview & Challenges Solved -->
+        <div class="sol-main-col">
+          <div class="content-card glass-card">
+            <h2>Visión General de la Solución</h2>
+            <p class="overview-paragraph">{{ solution.overview }}</p>
+
+            <div class="challenges-block">
+              <h3>Desafíos que resolvemos</h3>
+              <ul class="challenges-list">
+                <li *ngFor="let item of solution.challengesSolved">
+                  <div class="bullet-icon">
+                    <lucide-icon [name]="icons.Zap" size="16"></lucide-icon>
+                  </div>
+                  <span>{{ item }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Features Grid -->
+          <div class="content-card glass-card mt-6">
+            <h2>Capacidades y Características Principales</h2>
+            <div class="features-grid">
+              <div class="feature-card" *ngFor="let feat of solution.features">
+                <div class="feat-icon-wrap">
+                  <lucide-icon [name]="icons.Sparkles" size="18"></lucide-icon>
+                </div>
+                <div class="feat-content">
+                  <h4>{{ feat.title }}</h4>
+                  <p>{{ feat.desc }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Deliverables & Use Cases -->
+          <div class="content-card glass-card mt-6">
+            <div class="deliverables-usecases-grid">
+              <div class="deliverables-col">
+                <h3>¿Qué incluye el proyecto?</h3>
+                <ul class="check-list">
+                  <li *ngFor="let del of solution.deliverables">
+                    <lucide-icon [name]="icons.Check" size="16" class="text-accent"></lucide-icon>
+                    <span>{{ del }}</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="usecases-col">
+                <h3>Casos de Uso Ideales</h3>
+                <ul class="usecase-list">
+                  <li *ngFor="let uc of solution.useCases">
+                    <lucide-icon [name]="icons.Activity" size="16" class="text-primary"></lucide-icon>
+                    <span>{{ uc }}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Technical Specs Sidebar & Fast Contact Card -->
+        <div class="sol-sidebar-col">
+          
+          <!-- Technical Specs Card -->
+          <div class="sidebar-card glass-card">
+            <h3>Ficha Técnica</h3>
+            <div class="specs-table">
+              <div class="spec-row" *ngFor="let spec of solution.technicalSpecs">
+                <span class="spec-label">{{ spec.label }}</span>
+                <span class="spec-val">{{ spec.value }}</span>
+              </div>
+            </div>
+            <div class="specs-footer">
+              <span class="guarantee-badge">Garantía Hamster Software</span>
+              <p>Arquitectura escalable, diseño a medida y código libre de vendor lock-in.</p>
+            </div>
+          </div>
+
+          <!-- Fast Quote Form Card -->
+          <div id="cotizar" class="sidebar-card quote-card glass-card">
+            <h3>Cotiza {{ solution.name }}</h3>
+            <p class="quote-intro">Déjanos tus datos o contáctanos por WhatsApp para una propuesta económica personalizada sin compromiso.</p>
+
+            <form (ngSubmit)="sendWhatsAppLead()" class="quick-form">
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Nombre completo</mat-label>
+                <input matInput id="lead-name" type="text" [(ngModel)]="contactForm.nombre" name="nombre" required />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Correo empresarial</mat-label>
+                <input matInput id="lead-email" type="email" [(ngModel)]="contactForm.email" name="email" required />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Empresa u Organización</mat-label>
+                <input matInput id="lead-empresa" type="text" [(ngModel)]="contactForm.empresa" name="empresa" />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Detalle o requerimiento especial</mat-label>
+                <textarea matInput id="lead-msg" [(ngModel)]="contactForm.mensaje" name="mensaje" rows="3"></textarea>
+              </mat-form-field>
+
+              <button mat-flat-button color="primary" type="submit" class="w-full mat-cta-btn">
+                <span>Enviar por WhatsApp</span>
+                <lucide-icon [name]="icons.ArrowRight" size="16"></lucide-icon>
+              </button>
+            </form>
+
+            <div class="direct-contact-hint">
+              <span>O llámanos directamente:</span>
+              <a href="tel:+573025790274" class="phone-link">+57 302 579 0274</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Solutions Section -->
+  <section class="related-section">
+    <div class="container">
+      <div class="related-header">
+        <h2>Otras Soluciones que podrían interesarte</h2>
+        <a routerLink="/" fragment="soluciones" class="btn btn-outline btn-sm">Ver todas las 18 soluciones</a>
+      </div>
+
+      <div class="related-grid">
+        <div *ngFor="let rel of relatedSolutions" class="related-card glass-card">
+          <div class="related-category">{{ rel.subtitle }}</div>
+          <h3 class="related-title">{{ rel.name }}</h3>
+          <a [routerLink]="['/soluciones', rel.slug]" class="related-link">
+            <span>Explorar solución</span>
+            <lucide-icon [name]="icons.ArrowRight" size="14"></lucide-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- 404 Fallback Template if slug is not found -->
+<ng-template #notFoundTemplate>
+  <div class="not-found-wrap">
+    <div class="container text-center">
+      <div class="error-code">404</div>
+      <h2>Solución no encontrada</h2>
+      <p>La solución que buscas no se encuentra disponible o ha cambiado de enlace.</p>
+      <div class="mt-6">
+        <a routerLink="/" class="btn btn-primary">
+          <lucide-icon [name]="icons.ArrowLeft" size="16"></lucide-icon>
+          <span>Regresar a la página principal</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</ng-template>
