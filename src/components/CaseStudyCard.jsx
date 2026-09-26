@@ -11,48 +11,61 @@ export default function CaseStudyCard({ caseStudy }) {
     <Reveal className="h-full">
       <article className="card card-hover group flex h-full flex-col overflow-hidden">
         {/* Cabecera visual con mockup del proyecto */}
-        <div className="relative aspect-[16/10] w-full overflow-hidden border-b-2 border-ink-900 bg-ink-950">
-          <div className="bg-hatch pointer-events-none absolute inset-0 opacity-40" aria-hidden="true" />
+        <div
+          className={`relative aspect-[16/10] w-full overflow-hidden border-b-2 border-ink-900 ${
+            isMobile ? 'bg-[#F2EFE9] bg-grid' : 'bg-ink-950'
+          }`}
+        >
+          {!isMobile && (
+            <div className="bg-hatch pointer-events-none absolute inset-0 opacity-40" aria-hidden="true" />
+          )}
 
           {isMobile ? (
             /* Mockup Smartphone para App Móvil */
-            <div className="relative flex h-full w-full items-center justify-center p-3 sm:p-4">
+            <div className="relative flex h-full w-full items-center justify-center p-2 sm:p-4">
               {/* Badge tipo y dominio */}
-              <span className="badge absolute left-3 top-3 z-10 border border-ink-900 bg-paper/95 text-ink-900 shadow-[2px_2px_0_0_#1C1917]">
+              <span className="badge absolute left-3 top-3 z-10 border border-ink-900 bg-white/95 text-ink-950 shadow-[2px_2px_0_0_#1C1917]">
                 {caseStudy.type}
               </span>
-              <span className="absolute right-3 top-3 z-10 hidden items-center gap-1 font-mono text-[10px] uppercase tracking-wider text-ink-400 sm:inline-flex">
-                <Icon name="globe" className="h-3 w-3 text-brand-400" />
+              <span className="absolute right-3 top-3 z-10 hidden items-center gap-1 font-mono text-[10px] font-bold uppercase tracking-wider text-ink-700 bg-white/95 border border-ink-900 px-2 py-0.5 shadow-[2px_2px_0_0_#1C1917] sm:inline-flex">
+                <Icon name="globe" className="h-3 w-3 text-brand-600" />
                 {caseStudy.domain}
               </span>
 
-              {/* Teléfono */}
-              <div className="relative h-[210px] w-[112px] sm:h-[235px] sm:w-[126px] rounded-[1.85rem] border-[3.5px] border-ink-700 bg-ink-900 shadow-[0_15px_35px_rgba(0,0,0,0.6)] transition-transform duration-500 group-hover:scale-105">
+              {/* Tag flotante izquierdo: Plataforma */}
+              <div className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 hidden md:flex flex-col gap-0.5 border-2 border-ink-900 bg-white px-2.5 py-1.5 shadow-hard text-ink-950">
+                <p className="font-mono text-[9px] font-bold uppercase tracking-wider text-ink-500">
+                  {isEn ? 'Platform' : 'Plataforma'}
+                </p>
+                <p className="font-mono text-xs font-black text-brand-600">iOS & Android</p>
+              </div>
+
+              {/* Teléfono optimizado para ver la imagen completa sin opacidad */}
+              <div className="relative h-[92%] aspect-[860/1504] max-h-[320px] rounded-[1.85rem] border-[3.5px] border-ink-900 bg-ink-950 p-[2px] shadow-[0_12px_30px_rgba(28,25,23,0.18)] transition-transform duration-500 group-hover:scale-105">
                 {/* Altavoz / notch superior */}
-                <div className="absolute left-1/2 top-1.5 z-20 h-1.5 w-7 -translate-x-1/2 rounded-full bg-ink-700" />
+                <div className="absolute left-1/2 top-1.5 z-20 h-1.5 w-6 -translate-x-1/2 rounded-full bg-ink-800" />
                 {/* Pantalla del teléfono */}
-                <div className="relative flex h-full flex-col overflow-hidden rounded-[1.55rem] bg-ink-950">
+                <div className="relative flex h-full w-full flex-col overflow-hidden rounded-[1.55rem] bg-white">
                   <img
                     src={caseStudy.image}
                     alt={caseStudy.title}
-                    className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    className="h-full w-full object-contain object-top transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                     decoding="async"
                   />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/25 via-transparent to-transparent" />
                 </div>
               </div>
 
-              {/* Tag flotante WhatsApp Direct */}
-              <div className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 hidden sm:flex items-center gap-2 border border-ink-700 bg-ink-900/90 px-3 py-2 shadow-hard backdrop-blur text-paper">
-                <span className="flex h-6 w-6 items-center justify-center rounded bg-emerald-500/20 text-emerald-400">
+              {/* Tag flotante derecho: WhatsApp Direct */}
+              <div className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 hidden sm:flex items-center gap-2 border-2 border-ink-900 bg-white px-2.5 py-2 shadow-hard text-ink-950">
+                <span className="flex h-6 w-6 items-center justify-center rounded bg-emerald-500 text-white">
                   <Icon name="chat" className="h-3.5 w-3.5" />
                 </span>
                 <div>
-                  <p className="font-mono text-[9px] uppercase tracking-wider text-ink-400">
+                  <p className="font-mono text-[9px] font-bold uppercase tracking-wider text-ink-500">
                     {isEn ? 'Direct Contact' : 'Contacto Directo'}
                   </p>
-                  <p className="font-mono text-xs font-bold text-emerald-400">WhatsApp</p>
+                  <p className="font-mono text-xs font-bold text-emerald-600">WhatsApp</p>
                 </div>
               </div>
             </div>
@@ -84,7 +97,6 @@ export default function CaseStudyCard({ caseStudy }) {
                   loading="lazy"
                   decoding="async"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/30 via-transparent to-transparent" />
               </div>
             </div>
           )}
