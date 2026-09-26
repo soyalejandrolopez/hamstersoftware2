@@ -198,8 +198,8 @@ export const t = {
       formSubmit: 'Enviar Solicitud a WhatsApp',
       formSuccessTitle: '¡Solicitud lista para WhatsApp!',
       formSuccessMessage:
-        'Gracias por contactarnos, {name}. Se ha generado tu mensaje personalizado para abrir directamente en WhatsApp al número +57 302 5790274.',
-      formWhatsAppButton: 'Abrir WhatsApp (+57 302 5790274)',
+        'Gracias por contactarnos, {name}. Se ha generado tu mensaje personalizado para abrir directamente en WhatsApp.',
+      formWhatsAppButton: 'Abrir chat de WhatsApp',
       formPreviewTitle: 'Mensaje personalizado generado:',
       formAnother: 'Enviar otra solicitud',
     },
@@ -417,8 +417,8 @@ export const t = {
       formSubmit: 'Send Request to WhatsApp',
       formSuccessTitle: 'Request ready for WhatsApp!',
       formSuccessMessage:
-        'Thank you for contacting us, {name}. Your personalized message has been generated to open directly in WhatsApp at +57 302 5790274.',
-      formWhatsAppButton: 'Open WhatsApp (+57 302 5790274)',
+        'Thank you for contacting us, {name}. Your personalized message has been generated to open directly in WhatsApp.',
+      formWhatsAppButton: 'Open WhatsApp Chat',
       formPreviewTitle: 'Generated custom message:',
       formAnother: 'Submit another request',
     },

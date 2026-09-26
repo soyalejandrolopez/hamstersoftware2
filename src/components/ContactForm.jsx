@@ -3,7 +3,6 @@ import { useLocalizedData } from '../data/i18nData'
 import Icon from './Icons'
 
 const WHATSAPP_PHONE = '573025790274'
-const WHATSAPP_DISPLAY = '302 5790274'
 
 const initialForm = {
   name: '',
@@ -16,25 +15,25 @@ const initialForm = {
 export function buildWhatsAppMessage(form, isEn = false) {
   const lines = isEn
     ? [
-        `*🚀 New project inquiry - Hamster Software*`,
+        `*New project inquiry - Hamster Software*`,
         ``,
-        `👤 *Name:* ${form.name?.trim() || 'N/A'}`,
-        `📧 *Email:* ${form.email?.trim() || 'N/A'}`,
-        form.company?.trim() ? `🏢 *Company:* ${form.company.trim()}` : null,
-        form.service?.trim() ? `🛠️ *Service of interest:* ${form.service.trim()}` : null,
+        `*Name:* ${form.name?.trim() || 'N/A'}`,
+        `*Email:* ${form.email?.trim() || 'N/A'}`,
+        form.company?.trim() ? `*Company:* ${form.company.trim()}` : null,
+        form.service?.trim() ? `*Service of interest:* ${form.service.trim()}` : null,
         ``,
-        `💬 *Message:*`,
+        `*Message:*`,
         form.message?.trim() || '',
       ]
     : [
-        `*🚀 Nueva solicitud de proyecto - Hamster Software*`,
+        `*Nueva solicitud de proyecto - Hamster Software*`,
         ``,
-        `👤 *Nombre:* ${form.name?.trim() || 'N/A'}`,
-        `📧 *Email:* ${form.email?.trim() || 'N/A'}`,
-        form.company?.trim() ? `🏢 *Empresa:* ${form.company.trim()}` : null,
-        form.service?.trim() ? `🛠️ *Servicio de interés:* ${form.service.trim()}` : null,
+        `*Nombre:* ${form.name?.trim() || 'N/A'}`,
+        `*Email:* ${form.email?.trim() || 'N/A'}`,
+        form.company?.trim() ? `*Empresa:* ${form.company.trim()}` : null,
+        form.service?.trim() ? `*Servicio de interés:* ${form.service.trim()}` : null,
         ``,
-        `💬 *Mensaje:*`,
+        `*Mensaje:*`,
         form.message?.trim() || '',
       ]
 
@@ -94,7 +93,7 @@ export default function ContactForm() {
                 {t.contact.formPreviewTitle}
               </span>
               <span className="font-mono text-[11px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 border border-emerald-300">
-                WhatsApp: {WHATSAPP_DISPLAY}
+                {isEn ? 'Direct WhatsApp' : 'WhatsApp Directo'}
               </span>
             </div>
             <pre className="whitespace-pre-wrap font-sans text-xs sm:text-sm text-ink-800 leading-relaxed bg-white border border-ink-200 p-3 select-all">
@@ -133,7 +132,7 @@ export default function ContactForm() {
         </p>
         <span className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 border border-emerald-200">
           <Icon name="whatsapp" className="h-3.5 w-3.5 text-emerald-600" />
-          {WHATSAPP_DISPLAY}
+          {isEn ? 'Direct WhatsApp' : 'WhatsApp Directo'}
         </span>
       </div>
 
@@ -226,8 +225,8 @@ export default function ContactForm() {
 
         <p className="font-mono text-[11px] text-ink-500">
           {isEn
-            ? '⚡ Opens WhatsApp directly to 302 5790274'
-            : '⚡ Abre WhatsApp directamente al 302 5790274'}
+            ? '⚡ Opens WhatsApp chat directly with your inquiry'
+            : '⚡ Abre el chat de WhatsApp directamente con tu consulta'}
         </p>
       </div>
 

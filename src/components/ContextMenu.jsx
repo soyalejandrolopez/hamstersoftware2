@@ -191,7 +191,7 @@ export default function ContextMenu() {
         >
           <span className="flex items-center gap-2">
             <Icon name="whatsapp" className="h-3.5 w-3.5 text-emerald-600" />
-            <span>WhatsApp (302 5790274)</span>
+            <span>{isEn ? 'Direct WhatsApp' : 'WhatsApp Directo'}</span>
           </span>
           <span className="font-mono text-[9px] uppercase tracking-wider text-emerald-600 bg-emerald-100 px-1 py-0.5 border border-emerald-300">
             Chat
