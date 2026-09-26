@@ -150,6 +150,21 @@ export const successCasesEn = [
     ],
   },
   {
+    domain: 'fundacionintegral.org',
+    tags: ['NGO', 'University & Sports', 'USA', 'Donations'],
+    title: "NGO Websites — Integral Foundation (USA)",
+    type: 'NGO Website',
+    image: '/images/fundacionintegralpatch.png',
+    description:
+      'Website for an NGO promoting collegiate education and sports in the USA, integrating scholarship programs and a secure donation gateway.',
+    highlight: 'Education & Sports USA',
+    features: [
+      'Custom web design adaptable to all devices',
+      'Platform for university pathways and collegiate athletic programs',
+      'SEO optimization and secure donation processing',
+    ],
+  },
+  {
     domain: 'fundaciontimbio.org',
     tags: ['NGO', 'Donations', 'WordPress'],
     title: "NGO Websites — Timbío, Cauca",

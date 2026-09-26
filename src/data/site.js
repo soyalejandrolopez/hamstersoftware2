@@ -152,6 +152,21 @@ export const successCases = [
     ],
   },
   {
+    domain: 'fundacionintegral.org',
+    tags: ['ONG', 'Universidad & Deporte', 'USA', 'Donaciones'],
+    title: "Sitios Web ONG'S — Fundación Integral (USA)",
+    type: "Sitio Web ONG",
+    image: '/images/fundacionintegralpatch.png',
+    description:
+      'Sitio web para una ONG que promueve la educación universitaria y el deporte en USA, integrando programas de becas y pasarela de donaciones.',
+    highlight: 'Universidad & Deporte USA',
+    features: [
+      'Diseño web personalizado y adaptable a todos los dispositivos',
+      'Plataforma para vinculación universitaria y programas deportivos',
+      'Optimización SEO y pasarela de donaciones segura',
+    ],
+  },
+  {
     domain: 'fundaciontimbio.org',
     tags: ['ONG', 'Donaciones', 'WordPress'],
     title: "Sitios Web ONG'S — Timbío, Cauca",
