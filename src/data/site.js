@@ -258,6 +258,21 @@ export const successCases = [
     ],
   },
   {
+    domain: 'speedingshopper.com',
+    tags: ['Agente de Compras', 'Logística & Envíos', 'Baytown, TX', 'E-commerce'],
+    title: 'Speeding Shopper LLC — Agente de Compras & Logística',
+    type: 'Plataforma Web & Logística',
+    image: '/images/speedingshopper.png',
+    description:
+      'Implantación de una plataforma web para Speeding Shopper LLC ubicada en Baytown, TX, facilitando servicios de agente de compras, cotizaciones y gestión de envíos.',
+    highlight: 'Baytown, TX / Logística',
+    features: [
+      'Diseño web personalizado y adaptable a todos los dispositivos',
+      'Sistema de cotización y solicitud de compras asistidas en línea',
+      'Optimización SEO y seguimiento logístico de pedidos',
+    ],
+  },
+  {
     domain: 'fundacionpopayan.org',
     tags: ['Fundación', 'WordPress', 'Eventos'],
     title: 'Sitios Web para Fundaciones — Popayán',
