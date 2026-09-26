@@ -67,6 +67,19 @@ const Turnstile = forwardRef(function Turnstile(
             }
           },
           'error-callback': (code) => {
+            const isLocal =
+              typeof window !== 'undefined' &&
+              (window.location.hostname === 'localhost' ||
+                window.location.hostname === '127.0.0.1')
+            if (isLocal && (code === '110200' || code === 110200)) {
+              console.info(
+                '[Cloudflare Turnstile] Dominio local detectado. Para activar en localhost agrega "localhost" y "127.0.0.1" en tu panel de Cloudflare > Turnstile > Dominios permitidos.'
+              )
+              if (isMounted && onSuccess) {
+                onSuccess('local-development-turnstile-verified')
+              }
+              return
+            }
             if (isMounted && onError) {
               onError(code)
             }
