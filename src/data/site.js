@@ -126,8 +126,7 @@ export const successCases = [
     tags: ['Salud', 'Citas', 'Web App'],
     title: 'Servicios Médicos Personalizados',
     type: 'Web App',
-    image:
-      'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/empresamedicaencasa.png',
+    image: '/images/empresamedicaencasa.png',
     description:
       'Implantación de un sitio web personalizado para atención médica personalizada, gestión de consultas y agendamiento de citas en línea.',
     highlight: 'Salud Digital',
@@ -156,8 +155,7 @@ export const successCases = [
     tags: ['Internacional', 'Donaciones', 'React'],
     title: "Sitios Web ONG'S — Mallory Ave Jersey City",
     type: "Sitio Web ONG",
-    image:
-      'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/ong3.png',
+    image: '/images/ong3.png',
     description:
       'Implantación de una página web para una fundación ubicada en Mallory Ave Jersey City con canal de difusión comunitaria y pasarela de donaciones.',
     highlight: 'Impacto Social',
@@ -186,8 +184,7 @@ export const successCases = [
     tags: ['ONG', 'Donaciones', 'WordPress'],
     title: "Sitios Web ONG'S — Fundación Social",
     type: "Sitio Web ONG",
-    image:
-      'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/sitioong.png',
+    image: '/images/sitioong.png',
     description:
       'Implantación de una página web para una fundación comunitaria, fortaleciendo el alcance social, la transparencia y el recaudo de donaciones.',
     highlight: 'Comunidad & Donaciones',
@@ -201,8 +198,7 @@ export const successCases = [
     tags: ['Streaming', 'Radio', 'VPS'],
     title: 'Radio Streaming Services',
     type: 'Streaming & VPS',
-    image:
-      'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/sitioradio.png',
+    image: '/images/sitioradio.png',
     description:
       'Implementación con software de una radio virtual con servidores VPS optimizados para transmisión continua, baja latencia y alta concurrencia.',
     highlight: 'Transmisión 24/7',
@@ -216,8 +212,7 @@ export const successCases = [
     tags: ['Servicios', 'React', 'Tailwind'],
     title: 'Portal Web — Consultora Contable',
     type: 'Portal Web',
-    image:
-      'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/sitiowebcorporativo2.png',
+    image: '/images/sitiowebcorporativo2.png',
     description:
       'Implantación de un portal web para una consultora contable que ofrece asesoría fiscal, tributaria y financiera con integración analítica.',
     highlight: 'Finanzas & Analítica',
@@ -232,8 +227,7 @@ export const successCases = [
     tags: ['Marketing', 'Next.js', 'SEO'],
     title: 'Sitios Web Empresariales — Agencia de Marketing',
     type: 'Sitio Empresarial',
-    image:
-      'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/sitiowebcorporativo3.png',
+    image: '/images/sitiowebcorporativo3.png',
     description:
       'Implantación de una web para una agencia de marketing que ofrece servicios de consultoría estratégica y captación de clientes potenciales.',
     highlight: 'Estrategia Digital',
@@ -247,8 +241,7 @@ export const successCases = [
     tags: ['Portal Web', 'WordPress', 'Multilingüe'],
     title: 'Portal Web — Comercializadora Portugal',
     type: 'Portal Web',
-    image:
-      'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/sitiowebcorporativo.png',
+    image: '/images/sitiowebcorporativo.png',
     description:
       'Implantación de un portal web para una comercializadora de Portugal con arquitectura multilingüe y catálogo digital para el mercado europeo.',
     highlight: 'Multilingüe Europa',
@@ -262,8 +255,7 @@ export const successCases = [
     tags: ['Exportación', 'React', 'Multilingüe'],
     title: 'Sitios Web Empresariales — Empresa de Exportación Internacional',
     type: 'Sitio Empresarial',
-    image:
-      'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/sitiowebjunk.png',
+    image: '/images/sitiowebjunk.png',
     description:
       'Implantación de una página web para una empresa de exportación internacional con soporte multilingüe y catálogo para comercio exterior.',
     highlight: 'Comercio Exterior',
@@ -292,8 +284,7 @@ export const successCases = [
     tags: ['Fundación', 'WordPress', 'Eventos'],
     title: 'Sitios Web para Fundaciones — Popayán',
     type: 'Sitio para Fundación',
-    image:
-      'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/sitiowebong2.png',
+    image: '/images/sitiowebong2.png',
     description:
       'Implantación de una página web para una fundación de la ciudad de Popayán orientada a proyectos comunitarios y agenda de eventos sociales.',
     highlight: 'Gestión Social Popayán',
@@ -307,8 +298,7 @@ export const successCases = [
     tags: ['E-commerce', 'Woocommerce', 'Responsive'],
     title: 'Tienda Virtual — Microempresa Textil',
     type: 'Tienda Virtual',
-    image:
-      'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/tienda.png',
+    image: '/images/tienda.png',
     description:
       'Implantación de una tienda virtual para una microempresa textil con catálogo dinámico de prendas, carrito de compras y pasarela segura.',
     highlight: 'E-Commerce Textil',
@@ -322,8 +312,7 @@ export const successCases = [
     tags: ['Restaurante', 'E-commerce', 'Pedidos'],
     title: 'Tienda Virtual — Restaurante Local',
     type: 'Tienda Virtual',
-    image:
-      'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/tiendavirtual02.png',
+    image: '/images/tiendavirtual02.png',
     description:
       'Implantación de una tienda virtual para un restaurante local con menú interactivo y recepción directa de pedidos para entrega o retiro.',
     highlight: 'Pedidos en Línea',
