@@ -135,6 +135,21 @@ export const successCasesEn = [
     ],
   },
   {
+    domain: 'sandradelgado.co',
+    tags: ['Beauty & Health', 'Online Appointments', 'Trichology', 'Web App'],
+    title: 'Sandra Delgado — Beauty Salon & Hair Health',
+    type: 'Appointment Booking Web App',
+    image: '/images/sandradelgado.png',
+    description:
+      'Online appointment scheduling platform for Sandra Delgado — Beauty Salon. A unique, personalized experience grounded in expert Trichology for optimal hair health and care.',
+    highlight: 'Trichology & Online Booking',
+    features: [
+      'Custom web design adaptable across all devices',
+      'Interactive online scheduling and appointment booking system',
+      'SEO optimization and specialized hair health service showcase',
+    ],
+  },
+  {
     domain: 'fundacionmallory.org',
     tags: ['International', 'Donations', 'React'],
     title: "NGO Websites — Mallory Ave Jersey City",

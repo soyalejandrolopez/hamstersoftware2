@@ -137,6 +137,21 @@ export const successCases = [
     ],
   },
   {
+    domain: 'sandradelgado.co',
+    tags: ['Belleza & Salud', 'Agendamiento de Citas', 'Tricología', 'Web App'],
+    title: 'Sandra Delgado — Sala de Belleza & Salud Capilar',
+    type: 'Web App de Citas',
+    image: '/images/sandradelgado.png',
+    description:
+      'Página de agendamiento de citas para Sandra Delgado — Sala de Belleza. Una experiencia única y personalizada, basada en el conocimiento experto de la Tricología para el cuidado y bienestar de tu cabello.',
+    highlight: 'Tricología & Citas Online',
+    features: [
+      'Diseño web personalizado y adaptable a todos los dispositivos',
+      'Sistema interactivo de reserva y agendamiento de citas en línea',
+      'Optimización SEO y presentación de servicios de salud capilar',
+    ],
+  },
+  {
     domain: 'fundacionmallory.org',
     tags: ['Internacional', 'Donaciones', 'React'],
     title: "Sitios Web ONG'S — Mallory Ave Jersey City",
