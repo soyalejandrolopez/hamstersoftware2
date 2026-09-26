@@ -13,19 +13,97 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/icon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hamster Software — Soluciones de datos a tu medida</title>
+    <title>Hamster Software — Soluciones de software y datos a tu medida</title>
+    
+    <!-- SEO Básico y Meta Descripción Optimizada (155 caracteres) -->
     <meta
       name="description"
-      content="Empresa de desarrollo de software en Popayán, Colombia. Aplicaciones web, móviles, sistemas de datos e inteligencia artificial para empresas que quieren crecer con tecnología."
+      content="Empresa de desarrollo de software a medida en Colombia. Especialistas en aplicaciones web, móviles, arquitectura de datos, ciberseguridad e IA empresarial."
     />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://hamstersoftware.com/" />
     <meta name="theme-color" content="#1C1917" />
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Hamster Software" />
-    <meta property="og:title" content="Hamster Software — Soluciones de datos a tu medida" />
+    <meta property="og:title" content="Hamster Software — Soluciones de software y datos a tu medida" />
     <meta
       property="og:description"
-      content="Aplicaciones web, móviles, datos e IA. Desde la idea hasta la implementación. Popayán, Colombia."
+      content="Empresa de desarrollo de software a medida en Colombia. Especialistas en aplicaciones web, móviles, arquitectura de datos, ciberseguridad e IA empresarial."
     />
+    <meta property="og:url" content="https://hamstersoftware.com/" />
+    <meta property="og:image" content="https://hamstersoftware.com/images/rentaya-web.png" />
+    <meta property="og:image:secure_url" content="https://hamstersoftware.com/images/rentaya-web.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Hamster Software — Desarrollo de Software y Plataformas Digitales" />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!-- Twitter Card (X) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@hamstersoftware" />
+    <meta name="twitter:title" content="Hamster Software — Soluciones de software y datos a tu medida" />
+    <meta
+      name="twitter:description"
+      content="Empresa de desarrollo de software en Colombia. Aplicaciones web, móviles, datos y ciberseguridad para empresas."
+    />
+    <meta name="twitter:image" content="https://hamstersoftware.com/images/rentaya-web.png" />
+    <meta name="twitter:image:alt" content="Hamster Software — Desarrollo de Software" />
+
+    <!-- Datos Estructurados JSON-LD (Schema.org para Google) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://hamstersoftware.com/#organization",
+          "name": "Hamster Software",
+          "url": "https://hamstersoftware.com",
+          "logo": "https://hamstersoftware.com/favicon.svg",
+          "description": "Empresa de desarrollo de software a medida en Popayán, Colombia. Aplicaciones web, móviles, sistemas de datos e inteligencia artificial.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Popayán",
+            "addressRegion": "Cauca",
+            "addressCountry": "CO"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "availableLanguage": ["Spanish", "English"]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://hamstersoftware.com/#website",
+          "url": "https://hamstersoftware.com",
+          "name": "Hamster Software",
+          "publisher": {
+            "@id": "https://hamstersoftware.com/#organization"
+          }
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://hamstersoftware.com/#service",
+          "name": "Hamster Software",
+          "url": "https://hamstersoftware.com",
+          "image": "https://hamstersoftware.com/images/rentaya-web.png",
+          "priceRange": "$$",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Popayán",
+            "addressRegion": "Cauca",
+            "addressCountry": "CO"
+          }
+        }
+      ]
+    }
+    </script>
+
     <!-- CDNs: DNS prefetch y preconnect para resolución ultra-rápida y alta disponibilidad -->
     <!-- CDN Primario: Google Fonts CDN -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
@@ -49,15 +127,50 @@
     <link rel="dns-prefetch" href="https://unpkg.com" />
     <link rel="preconnect" href="https://unpkg.com" crossorigin />
 
-    <!-- Tipografías: Carga principal con fallback automático a CDN alternativo (Bunny CDN) en caso de fallo -->
+    <!-- Optimización FCP / LCP: Carga no-bloqueante de tipografías con conmutación a Bunny CDN -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;0,900;1,600;1,700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
+    />
     <link
       id="primary-fonts"
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;0,900;1,600;1,700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
-      onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.href='https://fonts.bunny.net/css?family=fraunces:600,700,900,600i,700i|ibm-plex-mono:400,500,600|inter:400,500,600,700&display=swap';console.info('Tipografías cargadas exitosamente desde CDN alternativo (BunnyCDN)');}"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;0,900;1,600;1,700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+      onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.href='https://fonts.bunny.net/css?family=fraunces:600,700,900,600i,700i|ibm-plex-mono:400,500,600|inter:400,500,600,700&display=swap';this.media='all';console.info('Tipografías cargadas exitosamente desde CDN alternativo (BunnyCDN)');}"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;0,900;1,600;1,700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
+      />
+    </noscript>
+
+    <!-- Estilos críticos iniciales para pintura inmediata (FCP instantáneo) -->
+    <style>
+      body { background-color: #FAF9F6; color: #1C1917; margin: 0; }
+      #root:empty { min-height: 100vh; }
+    </style>
   </head>
   <body>
+    <!-- Enlaces internos semánticos para rastreadores web y accesibilidad (SEO) -->
+    <noscript>
+      <header style="padding: 1rem; border-bottom: 2px solid #1C1917; font-family: sans-serif; background: #FAF9F6;">
+        <nav aria-label="Navegación principal">
+          <ul style="display: flex; gap: 1rem; list-style: none; flex-wrap: wrap; margin: 0; padding: 0;">
+            <li><a href="/">Inicio — Hamster Software</a></li>
+            <li><a href="/servicios">Servicios de Desarrollo de Software</a></li>
+            <li><a href="/soluciones">Soluciones Tecnológicas e IA</a></li>
+            <li><a href="/proceso">Metodología y Proceso de Desarrollo</a></li>
+            <li><a href="/industrias">Sectores e Industrias</a></li>
+            <li><a href="/contacto">Contacto y Cotización de Proyectos</a></li>
+          </ul>
+        </nav>
+      </header>
+    </noscript>
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

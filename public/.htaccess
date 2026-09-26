@@ -61,6 +61,11 @@ AddDefaultCharset UTF-8
   RewriteEngine On
   RewriteBase /
   RewriteRule ^index\.html$ - [L]
+
+  # Rechazar con 404 URLs sospechosas de CMS/spam heredado para desindexarlas de Google
+  RewriteCond %{REQUEST_URI} (\.php|wp-admin|wp-content|wp-includes|xmlrpc\.php) [NC]
+  RewriteRule .* - [R=404,L]
+
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . index.html [L]
@@ -94,11 +99,15 @@ AddDefaultCharset UTF-8
   Header unset X-Powered-CMS
   Header always unset X-Powered-CMS
 
-  # Cabeceras de seguridad
-  Header set X-Content-Type-Options "nosniff"
-  Header set X-Frame-Options "SAMEORIGIN"
-  Header set Referrer-Policy "strict-origin-when-cross-origin"
-  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  # 7 Encabezados de protección y seguridad estándar (A+ en auditorías de seguridad)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always set X-XSS-Protection "1; mode=block"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.bunny.net; font-src 'self' https://fonts.gstatic.com https://fonts.bunny.net data:; img-src 'self' data: https:; connect-src 'self' https://wa.me https://fonts.googleapis.com https://fonts.gstatic.com https://fonts.bunny.net; frame-ancestors 'self';"
 </IfModule>
 
 # Permitir CORS para fuentes y assets estáticos desde CDNs o subdominios
