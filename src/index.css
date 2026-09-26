@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper text-ink-900 antialiased;
+  }
+  ::selection {
+    @apply bg-brand-500/25 text-ink-950;
+  }
+}
+
+@layer components {
+  .container-hs {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  /* ——— Botones rectangulares, estilo prensa ——— */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 border-2 border-ink-900 bg-ink-900 px-5 py-3 text-sm font-semibold text-paper transition-all hover:-translate-y-0.5 hover:bg-brand-500 hover:border-brand-500 hover:shadow-hard focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-paper active:translate-y-0 active:shadow-none;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 border-2 border-ink-900 bg-white px-5 py-3 text-sm font-semibold text-ink-900 transition-all hover:-translate-y-0.5 hover:shadow-hard focus:outline-none focus-visible:ring-2 focus-visible:ring-ink-900 focus-visible:ring-offset-2 focus-visible:ring-offset-paper active:translate-y-0 active:shadow-none;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-brand-600 underline-offset-4 transition hover:text-brand-500 hover:underline focus:outline-none rounded-none px-0 py-1;
+  }
+
+  /* ——— Tarjetas con borde de tinta y sombra dura ——— */
+  .card {
+    @apply border border-ink-900 bg-white transition-all duration-200;
+  }
+  .card-hover {
+    @apply hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard;
+  }
+
+  /* ——— Etiquetas monoespaciadas en mayúsculas ——— */
+  .badge {
+    @apply inline-flex items-center gap-1.5 border border-ink-900 bg-white px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.14em];
+  }
+  .chip {
+    @apply inline-flex items-center gap-2 border border-ink-300 bg-transparent px-3 py-1.5 font-mono text-xs uppercase tracking-wide text-ink-700 transition hover:border-ink-900 hover:bg-white hover:text-ink-950 hover:shadow-[2px_2px_0_0_#1C1917];
+  }
+
+  /* ——— Gradiente y acentos con los colores del logo ——— */
+  .bg-brand-gradient {
+    background: linear-gradient(135deg, #2072E8 0%, #168CE0 50%, #0DAAD8 100%);
+  }
+  .text-brand-gradient {
+    background: linear-gradient(135deg, #2072E8 0%, #0DAAD8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* ——— Eyebrow / etiqueta de sección ——— */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-500;
+  }
+  .eyebrow-mark {
+    @apply inline-block h-2 w-2 bg-brand-gradient;
+  }
+
+  .field {
+    @apply w-full border border-ink-300 bg-white px-4 py-3 text-sm text-ink-950 placeholder-ink-400 outline-none transition focus:border-ink-900 focus:shadow-[3px_3px_0_0_#1C1917];
+  }
+  .label {
+    @apply mb-1.5 block font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-700;
+  }
+
+  .section-pad {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  /* Regla editorial gruesa (separador de sección) */
+  .rule {
+    @apply border-t-2 border-ink-900;
+  }
+}
+
+/* Animación de aparición al hacer scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Retícula sutil de papel para el hero */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(28 25 23 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(28 25 23 / 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}
+
+/* Textura de líneas diagonales para bloques negros */
+.bg-hatch {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgb(250 249 246 / 0.05) 10px,
+    rgb(250 249 246 / 0.05) 11px
+  );
+}

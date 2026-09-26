@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <defs>
+    <linearGradient id="hs-logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2072E8" />
+      <stop offset="50%" stop-color="#168CE0" />
+      <stop offset="100%" stop-color="#0DAAD8" />
+    </linearGradient>
+  </defs>
+  <rect width="72" height="72" rx="18" ry="18" fill="url(#hs-logo-grad)" />
+  <circle cx="36" cy="36" r="18.8" fill="none" stroke="#FFFFFF" stroke-width="4.6" />
+  <line x1="36" y1="18" x2="36" y2="24.6" stroke="#FFFFFF" stroke-width="4.6" stroke-linecap="round" />
+  <line x1="36" y1="54" x2="36" y2="47.4" stroke="#FFFFFF" stroke-width="4.6" stroke-linecap="round" />
+  <line x1="18" y1="36" x2="24.6" y2="36" stroke="#FFFFFF" stroke-width="4.6" stroke-linecap="round" />
+  <line x1="54" y1="36" x2="47.4" y2="36" stroke="#FFFFFF" stroke-width="4.6" stroke-linecap="round" />
+  <circle cx="36" cy="36" r="5.8" fill="none" stroke="#FFFFFF" stroke-width="4.2" />
+</svg>
