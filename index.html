@@ -26,11 +26,35 @@
       property="og:description"
       content="Aplicaciones web, móviles, datos e IA. Desde la idea hasta la implementación. Popayán, Colombia."
     />
+    <!-- CDNs: DNS prefetch y preconnect para resolución ultra-rápida y alta disponibilidad -->
+    <!-- CDN Primario: Google Fonts CDN -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- CDN Alternativo 1: Bunny CDN Fonts (privacidad, Anycast y alta disponibilidad sin rastreo) -->
+    <link rel="dns-prefetch" href="https://fonts.bunny.net" />
+    <link rel="preconnect" href="https://fonts.bunny.net" crossorigin />
+
+    <!-- CDN Alternativo 2: Cloudflare CDNjs (red global Anycast de baja latencia) -->
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+
+    <!-- CDN Alternativo 3: jsDelivr Multi-CDN (conmutación por error entre Cloudflare, Fastly y Gcore) -->
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+
+    <!-- CDN Alternativo 4: unpkg CDN (red global distribuida) -->
+    <link rel="dns-prefetch" href="https://unpkg.com" />
+    <link rel="preconnect" href="https://unpkg.com" crossorigin />
+
+    <!-- Tipografías: Carga principal con fallback automático a CDN alternativo (Bunny CDN) en caso de fallo -->
     <link
+      id="primary-fonts"
       href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;0,900;1,600;1,700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
+      onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.href='https://fonts.bunny.net/css?family=fraunces:600,700,900,600i,700i|ibm-plex-mono:400,500,600|inter:400,500,600,700&display=swap';console.info('Tipografías cargadas exitosamente desde CDN alternativo (BunnyCDN)');}"
     />
   </head>
   <body>
