@@ -34,6 +34,7 @@ function TopTicker() {
 export default function Home() {
   const {
     t,
+    isEn,
     hero,
     features,
     stats,
@@ -240,7 +241,13 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-0">
           <img
             src="/images/cybersecurity-office.jpg"
-            alt=""
+            alt={
+              isEn
+                ? 'Cybersecurity operations and software development center'
+                : 'Centro de operaciones de ciberseguridad y desarrollo de software'
+            }
+            loading="lazy"
+            decoding="async"
             className="h-full w-full object-cover object-center opacity-30 mix-blend-luminosity filter contrast-125"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/90 to-ink-950/75" />

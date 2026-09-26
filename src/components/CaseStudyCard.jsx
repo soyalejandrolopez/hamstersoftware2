@@ -37,6 +37,7 @@ export default function CaseStudyCard({ caseStudy }) {
                     alt={caseStudy.title}
                     className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
+                    decoding="async"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/25 via-transparent to-transparent" />
                 </div>
@@ -81,6 +82,7 @@ export default function CaseStudyCard({ caseStudy }) {
                   alt={caseStudy.title}
                   className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/30 via-transparent to-transparent" />
               </div>
