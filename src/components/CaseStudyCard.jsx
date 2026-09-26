@@ -110,6 +110,22 @@ export default function CaseStudyCard({ caseStudy }) {
             {caseStudy.description}
           </p>
 
+          {caseStudy.features && caseStudy.features.length > 0 && (
+            <div className="mt-4 border-t border-ink-200/80 pt-3">
+              <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-ink-400">
+                {isEn ? 'Key Features' : 'Características del proyecto'}
+              </span>
+              <ul className="mt-2 space-y-1.5">
+                {caseStudy.features.map((feat, i) => (
+                  <li key={i} className="flex items-start gap-2 text-xs text-ink-700 leading-snug">
+                    <span className="mt-0.5 text-brand-600 font-bold">✓</span>
+                    <span>{feat}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           <div className="mt-6 flex items-center justify-between gap-3 border-t-2 border-ink-900 pt-4">
             <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-700">
               {caseStudy.highlight}

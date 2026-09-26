@@ -98,6 +98,11 @@ export const successCasesEn = [
     description:
       'Buy, sell, or rent with total confidence. Direct instant connection with property owners and vehicle dealerships via WhatsApp without unnecessary middlemen.',
     highlight: '100% Verified',
+    features: [
+      'Custom web design responsive across all screen sizes',
+      'Direct WhatsApp integration for immediate communication',
+      'Advanced search filters and geolocation',
+    ],
   },
   {
     domain: 'rentaya.com.co',
@@ -108,5 +113,176 @@ export const successCasesEn = [
     description:
       'Buy, sell, or rent on the go. Instant access to verified listings, push notifications, and frictionless direct contact with sellers and landlords.',
     highlight: 'Direct Contact',
+    features: [
+      'Native application optimized for iOS and Android',
+      'Real-time push notifications for newly listed items',
+      'Direct in-app negotiations with zero commissions',
+    ],
+  },
+  {
+    domain: 'empresamedicaencasa.com',
+    tags: ['Healthcare', 'Appointments', 'Web App'],
+    title: 'Personalized Medical Services',
+    type: 'Web App',
+    image:
+      'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/empresamedicaencasa.png',
+    description:
+      'Implementation of a custom web platform for personalized medical care, patient management, and online appointment booking.',
+    highlight: 'Digital Health',
+    features: [
+      'Custom web design adaptable to all devices',
+      'SEO optimization for higher search rankings',
+    ],
+  },
+  {
+    domain: 'fundacionmallory.org',
+    tags: ['International', 'Donations', 'React'],
+    title: "NGO Websites — Mallory Ave Jersey City",
+    type: 'NGO Website',
+    image:
+      'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/ong3.png',
+    description:
+      'Implementation of a website for an international non-profit located on Mallory Ave, Jersey City with donation processing capabilities.',
+    highlight: 'Social Impact',
+    features: [
+      'Custom web design adaptable to all devices',
+      'SEO optimization for higher search rankings',
+    ],
+  },
+  {
+    domain: 'fundaciontimbio.org',
+    tags: ['NGO', 'Donations', 'WordPress'],
+    title: "NGO Websites — Timbío, Cauca",
+    type: 'NGO Website',
+    image:
+      'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/sitioong.png',
+    description:
+      'Implementation of a community website for a charitable foundation in Timbío, Cauca, boosting donor engagement and outreach.',
+    highlight: 'Community & Aid',
+    features: [
+      'Custom web design adaptable to all devices',
+      'SEO optimization for higher search rankings',
+    ],
+  },
+  {
+    domain: 'radiostreaming.live',
+    tags: ['Streaming', 'Radio', 'VPS'],
+    title: 'Radio Streaming Services',
+    type: 'Streaming & VPS',
+    image:
+      'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/sitioradio.png',
+    description:
+      'Software implementation of a high-fidelity virtual radio station backed by dedicated VPS cloud infrastructure and 24/7 streaming.',
+    highlight: '24/7 Broadcast',
+    features: [
+      'Custom web design adaptable to all devices',
+      'SEO optimization for higher search rankings',
+    ],
+  },
+  {
+    domain: 'consultoriacontable.co',
+    tags: ['Services', 'React', 'Tailwind'],
+    title: 'Corporate Websites — Accounting Consultancy',
+    type: 'Corporate Website',
+    image:
+      'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/sitiowebcorporativo2.png',
+    description:
+      'Implementation of a modern corporate website for an accounting and tax advisory firm with integrated analytics and client inquiry channels.',
+    highlight: 'Finance & Analytics',
+    features: [
+      'Custom web design adaptable to all devices',
+      'SEO optimization for higher search rankings',
+      'Integration with analytics and social media systems',
+    ],
+  },
+  {
+    domain: 'agenciamarketing.com',
+    tags: ['Marketing', 'Next.js', 'SEO'],
+    title: 'Enterprise Websites — Marketing Agency',
+    type: 'Enterprise Website',
+    image:
+      'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/sitiowebcorporativo3.png',
+    description:
+      'Implementation of a high-performance website for a digital marketing agency providing strategic consulting and lead conversion.',
+    highlight: 'Digital Strategy',
+    features: [
+      'Custom web design adaptable to all devices',
+      'SEO optimization for higher search rankings',
+    ],
+  },
+  {
+    domain: 'comercializadorapt.com',
+    tags: ['Corporate', 'WordPress', 'Multilingual'],
+    title: 'Corporate Websites — Portugal Distributor',
+    type: 'Corporate Website',
+    image:
+      'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/sitiowebcorporativo.png',
+    description:
+      'Implementation of a multilingual corporate portal for an international trading company based in Portugal to serve European markets.',
+    highlight: 'Multilingual Europe',
+    features: [
+      'Custom web design adaptable to all devices',
+      'SEO optimization for higher search rankings',
+    ],
+  },
+  {
+    domain: 'exportacionesglobal.com',
+    tags: ['Export', 'React', 'Multilingual'],
+    title: 'Enterprise Websites — International Export',
+    type: 'Enterprise Website',
+    image:
+      'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/sitiowebjunk.png',
+    description:
+      'Implementation of an international export web portal with global catalog displays, multi-language support, and buyer contact pipelines.',
+    highlight: 'Global Trade',
+    features: [
+      'Custom web design adaptable to all devices',
+      'SEO optimization for higher search rankings',
+    ],
+  },
+  {
+    domain: 'fundacionpopayan.org',
+    tags: ['Foundation', 'WordPress', 'Events'],
+    title: 'Foundation Websites — Popayán',
+    type: 'Foundation Website',
+    image:
+      'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/sitiowebong2.png',
+    description:
+      'Implementation of a community-centered website for a non-profit foundation in Popayán with event scheduling and program showcase.',
+    highlight: 'Social Welfare',
+    features: [
+      'Custom web design adaptable to all devices',
+      'SEO optimization for higher search rankings',
+    ],
+  },
+  {
+    domain: 'modaytextil.com',
+    tags: ['E-commerce', 'WooCommerce', 'Responsive'],
+    title: 'Online Store — Textile Microenterprise',
+    type: 'Online Store',
+    image:
+      'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/tienda.png',
+    description:
+      'Implementation of an e-commerce store for an apparel microenterprise with visual catalog, shopping cart, and secure payment processing.',
+    highlight: 'Apparel E-Commerce',
+    features: [
+      'Custom web design adaptable to all devices',
+      'SEO optimization for higher search rankings',
+    ],
+  },
+  {
+    domain: 'restaurantedigital.com',
+    tags: ['Restaurant', 'E-commerce', 'Orders'],
+    title: 'Online Stores — Local Restaurant',
+    type: 'Online Store',
+    image:
+      'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/tiendavirtual02.png',
+    description:
+      'Implementation of an interactive online food ordering website for a local dining establishment with live menus and direct checkout.',
+    highlight: 'Online Ordering',
+    features: [
+      'Custom web design adaptable to all devices',
+      'SEO optimization for higher search rankings',
+    ],
   },
 ]

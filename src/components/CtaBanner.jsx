@@ -4,7 +4,7 @@ import Reveal from './Reveal'
 import Icon from './Icons'
 
 export default function CtaBanner({ title, description }) {
-  const { t, isEn } = useLocalizedData()
+  const { t } = useLocalizedData()
 
   const bannerTitle = title || t.cta.title
   const bannerDescription = description || t.cta.description
@@ -17,13 +17,7 @@ export default function CtaBanner({ title, description }) {
           <div className="pointer-events-none absolute inset-0">
             <img
               src="/images/consulting-office.jpg"
-              alt={
-                isEn
-                  ? 'Software consulting and cloud engineering team'
-                  : 'Equipo de consultoría de software y arquitectura cloud'
-              }
-              loading="lazy"
-              decoding="async"
+              alt=""
               className="h-full w-full object-cover object-center opacity-30 filter contrast-125"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-ink-950/90 via-ink-950/75 to-ink-950/90" />

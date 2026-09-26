@@ -4,7 +4,7 @@ import Logo from './Logo'
 import Icon from './Icons'
 
 export default function Footer() {
-  const { navLinks, site, serviceCategories, solutions, t, isEn } = useLocalizedData()
+  const { navLinks, site, serviceCategories, solutions, t } = useLocalizedData()
   const topServices = serviceCategories[0].services.slice(0, 4)
   const topSolutions = solutions.slice(0, 8)
 
@@ -14,13 +14,7 @@ export default function Footer() {
       <div className="pointer-events-none absolute inset-0">
         <img
           src="/images/tech-office-night.jpg"
-          alt={
-            isEn
-              ? 'Hamster Software engineering headquarters in Popayán, Colombia'
-              : 'Sede de ingeniería de Hamster Software en Popayán, Colombia'
-          }
-          loading="lazy"
-          decoding="async"
+          alt=""
           className="h-full w-full object-cover object-center opacity-25 filter contrast-125"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/90 to-ink-950/80" />
