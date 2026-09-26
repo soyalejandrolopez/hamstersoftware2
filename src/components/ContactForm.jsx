@@ -248,19 +248,7 @@ export default function ContactForm() {
 
       {/* Cloudflare Turnstile CAPTCHA Anti-Bot */}
       <div className="mt-5 border-t border-ink-200 pt-4">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 mb-2">
-          <div className="flex items-center gap-1.5">
-            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-            <label className="font-mono text-[11px] font-bold uppercase tracking-wider text-ink-700">
-              {t.contact.turnstileLabel || 'Verificación de seguridad Cloudflare'}
-            </label>
-          </div>
-          <span className="font-mono text-[10px] text-ink-500">
-            {t.contact.turnstileProtected || 'Protegido con Cloudflare Turnstile anti-bot'}
-          </span>
-        </div>
-
-        <div className="bg-ink-50/60 p-2.5 border border-ink-200 rounded-none inline-block">
+        <div className="inline-block">
           <Turnstile
             ref={turnstileRef}
             onSuccess={(token) => {
