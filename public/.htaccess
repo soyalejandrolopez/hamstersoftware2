@@ -2,13 +2,23 @@
 # Hamster Software - Apache / LiteSpeed Configuration for cPanel
 # ==============================================================================
 
-# Disable directory browsing
+# Deshabilitar firma del servidor en páginas de error y listados
+ServerSignature Off
+
+# Prevenir navegación de directorios
 Options -Indexes
 
-# UTF-8 encoding
+# Prevenir páginas de error por defecto que revelan el servidor LiteSpeed / Apache
+ErrorDocument 400 /index.html
+ErrorDocument 401 /index.html
+ErrorDocument 403 /index.html
+ErrorDocument 404 /index.html
+ErrorDocument 500 /index.html
+
+# Codificación UTF-8
 AddDefaultCharset UTF-8
 
-# MIME types
+# Tipos MIME
 <IfModule mod_mime.c>
   AddType image/svg+xml .svg .svgz
   AddType application/manifest+json .webmanifest .json
@@ -17,7 +27,7 @@ AddDefaultCharset UTF-8
   AddType application/javascript .js
 </IfModule>
 
-# GZIP / Deflate Compression
+# Compresión GZIP / Deflate
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html
   AddOutputFilterByType DEFLATE text/css
@@ -31,7 +41,7 @@ AddDefaultCharset UTF-8
   AddOutputFilterByType DEFLATE font/woff2
 </IfModule>
 
-# Browser Caching Headers
+# Cabeceras de caché del navegador
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresDefault "access plus 1 month"
@@ -46,7 +56,7 @@ AddDefaultCharset UTF-8
   ExpiresByType application/javascript "access plus 1 year"
 </IfModule>
 
-# SPA Routing Fallback
+# Enrutamiento SPA Fallback
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -56,9 +66,37 @@ AddDefaultCharset UTF-8
   RewriteRule . index.html [L]
 </IfModule>
 
-# Security Headers
+# Ocultar cabeceras del servidor y firmas tecnológicas (LiteSpeed, Apache, PHP)
 <IfModule mod_headers.c>
+  # Eliminar cabecera Server (LiteSpeed / Apache)
+  Header unset Server
+  Header always unset Server
+
+  # Eliminar cabeceras X-Powered-By y firmas específicas de LiteSpeed
+  Header unset X-Powered-By
+  Header always unset X-Powered-By
+  Header unset X-Turbo-Charged-By
+  Header always unset X-Turbo-Charged-By
+  Header unset X-LiteSpeed-Cache
+  Header always unset X-LiteSpeed-Cache
+  Header unset X-LiteSpeed-Purge
+  Header always unset X-LiteSpeed-Purge
+  Header unset X-LiteSpeed-Tag
+  Header always unset X-LiteSpeed-Tag
+
+  # Eliminar otras firmas de backend
+  Header unset X-AspNet-Version
+  Header always unset X-AspNet-Version
+  Header unset X-Runtime
+  Header always unset X-Runtime
+  Header unset X-Generator
+  Header always unset X-Generator
+  Header unset X-Powered-CMS
+  Header always unset X-Powered-CMS
+
+  # Cabeceras de seguridad
   Header set X-Content-Type-Options "nosniff"
   Header set X-Frame-Options "SAMEORIGIN"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
 </IfModule>
