@@ -1,11 +1,12 @@
 import { useEffect, useRef, useImperativeHandle, forwardRef } from 'react'
 
 const DEFAULT_SITE_KEY =
-  import.meta.env.VITE_CLOUDFLARE_TURNSTILE_SITE_KEY || '1x00000000000000000000AA'
+  import.meta.env.VITE_CLOUDFLARE_TURNSTILE_SITE_KEY || '0x4AAAAAAFEbdtYKiSpRfp3K'
 
 const Turnstile = forwardRef(function Turnstile(
   {
     siteKey = DEFAULT_SITE_KEY,
+    action = 'contact',
     onSuccess,
     onError,
     onExpire,
@@ -58,6 +59,7 @@ const Turnstile = forwardRef(function Turnstile(
       try {
         const id = window.turnstile.render(containerRef.current, {
           sitekey: siteKey,
+          action,
           theme,
           callback: (token) => {
             if (isMounted && onSuccess) {
