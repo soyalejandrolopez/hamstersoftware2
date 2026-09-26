@@ -57,12 +57,29 @@ export default function ContactForm() {
 
   const update = (field) => (e) => setForm((f) => ({ ...f, [field]: e.target.value }))
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     if (!turnstileToken) {
       setTurnstileError(true)
       return
+    }
+
+    try {
+      const verifyRes = await fetch('/api/verify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token: turnstileToken }),
+      })
+      if (verifyRes.ok) {
+        const verification = await verifyRes.json()
+        if (verification && verification.success === false) {
+          setTurnstileError(true)
+          return
+        }
+      }
+    } catch {
+      // Si el servidor local o estático no tiene Pages Functions activa, opera con validación cliente
     }
 
     const msg = buildWhatsAppMessage(form, isEn)
