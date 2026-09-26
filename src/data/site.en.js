@@ -180,14 +180,14 @@ export const successCasesEn = [
     ],
   },
   {
-    domain: 'fundaciontimbio.org',
+    domain: 'fundacionsocial.org',
     tags: ['NGO', 'Donations', 'WordPress'],
-    title: "NGO Websites — Timbío, Cauca",
+    title: "NGO Websites — Community Foundation",
     type: 'NGO Website',
     image:
       'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/sitioong.png',
     description:
-      'Implementation of a community website for a charitable foundation in Timbío, Cauca, boosting donor engagement and outreach.',
+      'Implementation of a community website for a charitable foundation, boosting donor engagement and outreach.',
     highlight: 'Community & Aid',
     features: [
       'Custom web design adaptable to all devices',
@@ -212,12 +212,12 @@ export const successCasesEn = [
   {
     domain: 'consultoriacontable.co',
     tags: ['Services', 'React', 'Tailwind'],
-    title: 'Corporate Websites — Accounting Consultancy',
-    type: 'Corporate Website',
+    title: 'Web Portal — Accounting Consultancy',
+    type: 'Web Portal',
     image:
       'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/sitiowebcorporativo2.png',
     description:
-      'Implementation of a modern corporate website for an accounting and tax advisory firm with integrated analytics and client inquiry channels.',
+      'Implementation of a modern web portal for an accounting and tax advisory firm with integrated analytics and client inquiry channels.',
     highlight: 'Finance & Analytics',
     features: [
       'Custom web design adaptable to all devices',
@@ -242,13 +242,13 @@ export const successCasesEn = [
   },
   {
     domain: 'comercializadorapt.com',
-    tags: ['Corporate', 'WordPress', 'Multilingual'],
-    title: 'Corporate Websites — Portugal Distributor',
-    type: 'Corporate Website',
+    tags: ['Web Portal', 'WordPress', 'Multilingual'],
+    title: 'Web Portal — Portugal Distributor',
+    type: 'Web Portal',
     image:
       'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/sitiowebcorporativo.png',
     description:
-      'Implementation of a multilingual corporate portal for an international trading company based in Portugal to serve European markets.',
+      'Implementation of a multilingual web portal for an international trading company based in Portugal to serve European markets.',
     highlight: 'Multilingual Europe',
     features: [
       'Custom web design adaptable to all devices',

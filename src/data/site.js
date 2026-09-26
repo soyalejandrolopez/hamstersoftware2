@@ -182,14 +182,14 @@ export const successCases = [
     ],
   },
   {
-    domain: 'fundaciontimbio.org',
+    domain: 'fundacionsocial.org',
     tags: ['ONG', 'Donaciones', 'WordPress'],
-    title: "Sitios Web ONG'S — Timbío, Cauca",
+    title: "Sitios Web ONG'S — Fundación Social",
     type: "Sitio Web ONG",
     image:
       'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/sitioong.png',
     description:
-      'Implantación de una página web para una fundación en Timbío, Cauca, fortaleciendo el alcance social, la transparencia y el recaudo de donaciones.',
+      'Implantación de una página web para una fundación comunitaria, fortaleciendo el alcance social, la transparencia y el recaudo de donaciones.',
     highlight: 'Comunidad & Donaciones',
     features: [
       'Diseño web personalizado y adaptable a todos los dispositivos',
@@ -214,12 +214,12 @@ export const successCases = [
   {
     domain: 'consultoriacontable.co',
     tags: ['Servicios', 'React', 'Tailwind'],
-    title: 'Sitios Corporativos — Consultora Contable',
-    type: 'Sitio Corporativo',
+    title: 'Portal Web — Consultora Contable',
+    type: 'Portal Web',
     image:
       'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/sitiowebcorporativo2.png',
     description:
-      'Implantación de una web para una consultora contable que ofrece asesoría fiscal, tributaria y financiera con integración analítica.',
+      'Implantación de un portal web para una consultora contable que ofrece asesoría fiscal, tributaria y financiera con integración analítica.',
     highlight: 'Finanzas & Analítica',
     features: [
       'Diseño web personalizado y adaptable a todos los dispositivos',
@@ -244,13 +244,13 @@ export const successCases = [
   },
   {
     domain: 'comercializadorapt.com',
-    tags: ['Corporativo', 'WordPress', 'Multilingüe'],
-    title: 'Sitios Corporativos — Comercializadora Portugal',
-    type: 'Sitio Corporativo',
+    tags: ['Portal Web', 'WordPress', 'Multilingüe'],
+    title: 'Portal Web — Comercializadora Portugal',
+    type: 'Portal Web',
     image:
       'https://alejandrowebsites-git-main-soyalejandrolopezmurillos-projects.vercel.app/images/sitiowebcorporativo.png',
     description:
-      'Implantación de una web para una comercializadora de Portugal con arquitectura multilingüe y catálogo corporativo para el mercado europeo.',
+      'Implantación de un portal web para una comercializadora de Portugal con arquitectura multilingüe y catálogo digital para el mercado europeo.',
     highlight: 'Multilingüe Europa',
     features: [
       'Diseño web personalizado y adaptable a todos los dispositivos',
