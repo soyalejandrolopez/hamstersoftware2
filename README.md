@@ -21,6 +21,7 @@ Sitio web corporativo y portafolio interactivo de **Hamster Software**, agencia 
 - **SEO Técnico & Datos Estructurados:** Integración de Schema.org JSON-LD (`Organization`, `WebSite`, `ProfessionalService`), Open Graph dinámico y Twitter Cards para máxima indexación en motores de búsqueda.
 - **Portafolio de Casos de Éxito:** Muestrario de 16+ proyectos reales en sectores de salud digital, aplicaciones móviles, e-commerce, fundaciones/ONGs y streaming.
 - **Monitoreo de Ciberseguridad (CVE):** Componente interactivo que refleja fuentes de seguridad y métricas de monitoreo de vulnerabilidades (NVD / NIST).
+- **Protección Anti-Bot con Cloudflare Turnstile:** Integración de Cloudflare Turnstile (CAPTCHA inteligente sin fricción) para proteger el formulario de contacto contra spam y bots automatizados.
 
 ---
 

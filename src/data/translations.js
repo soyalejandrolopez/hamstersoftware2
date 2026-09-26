@@ -202,6 +202,9 @@ export const t = {
       formWhatsAppButton: 'Abrir chat de WhatsApp',
       formPreviewTitle: 'Mensaje personalizado generado:',
       formAnother: 'Enviar otra solicitud',
+      turnstileLabel: 'Verificación de seguridad Cloudflare',
+      turnstileRequired: 'Por favor completa la verificación de seguridad para continuar.',
+      turnstileProtected: 'Protegido con Cloudflare Turnstile anti-bot',
     },
 
     // Footer
@@ -421,6 +424,9 @@ export const t = {
       formWhatsAppButton: 'Open WhatsApp Chat',
       formPreviewTitle: 'Generated custom message:',
       formAnother: 'Submit another request',
+      turnstileLabel: 'Cloudflare Security Verification',
+      turnstileRequired: 'Please complete the security verification to proceed.',
+      turnstileProtected: 'Protected by Cloudflare Turnstile anti-bot',
     },
 
     // Footer

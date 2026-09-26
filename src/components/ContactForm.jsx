@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useLocalizedData } from '../data/i18nData'
 import Icon from './Icons'
+import Turnstile from './Turnstile'
 
 const WHATSAPP_PHONE = '573025790274'
 
@@ -49,12 +50,21 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
   const [generatedMessage, setGeneratedMessage] = useState('')
   const [whatsappUrl, setWhatsappUrl] = useState('')
+  const [turnstileToken, setTurnstileToken] = useState('')
+  const [turnstileError, setTurnstileError] = useState(false)
+  const turnstileRef = useRef(null)
   const { serviceCategories, site, t, isEn } = useLocalizedData()
 
   const update = (field) => (e) => setForm((f) => ({ ...f, [field]: e.target.value }))
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    if (!turnstileToken) {
+      setTurnstileError(true)
+      return
+    }
+
     const msg = buildWhatsAppMessage(form, isEn)
     const url = buildWhatsAppUrl(msg)
     setGeneratedMessage(msg)
@@ -71,6 +81,9 @@ export default function ContactForm() {
     setForm(initialForm)
     setGeneratedMessage('')
     setWhatsappUrl('')
+    setTurnstileToken('')
+    setTurnstileError(false)
+    turnstileRef.current?.reset()
   }
 
   if (submitted) {
@@ -214,6 +227,45 @@ export default function ContactForm() {
             className="field resize-y"
           />
         </div>
+      </div>
+
+      {/* Cloudflare Turnstile CAPTCHA Anti-Bot */}
+      <div className="mt-5 border-t border-ink-200 pt-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 mb-2">
+          <div className="flex items-center gap-1.5">
+            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+            <label className="font-mono text-[11px] font-bold uppercase tracking-wider text-ink-700">
+              {t.contact.turnstileLabel || 'Verificación de seguridad Cloudflare'}
+            </label>
+          </div>
+          <span className="font-mono text-[10px] text-ink-500">
+            {t.contact.turnstileProtected || 'Protegido con Cloudflare Turnstile anti-bot'}
+          </span>
+        </div>
+
+        <div className="bg-ink-50/60 p-2.5 border border-ink-200 rounded-none inline-block">
+          <Turnstile
+            ref={turnstileRef}
+            onSuccess={(token) => {
+              setTurnstileToken(token)
+              setTurnstileError(false)
+            }}
+            onError={() => {
+              setTurnstileToken('')
+            }}
+            onExpire={() => {
+              setTurnstileToken('')
+            }}
+            theme="light"
+          />
+        </div>
+
+        {turnstileError && !turnstileToken && (
+          <p className="mt-2 font-mono text-xs font-semibold text-rose-600 flex items-center gap-1.5 animate-bounce">
+            <span>⚠</span>
+            <span>{t.contact.turnstileRequired}</span>
+          </p>
+        )}
       </div>
 
       <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
