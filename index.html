@@ -152,6 +152,24 @@
       />
     </noscript>
 
+    <!-- Supresión de diagnósticos ruidosos de terceros en consola (Cloudflare Turnstile WebGPU/OTS) -->
+    <script>
+      (function() {
+        var origError = console.error;
+        var origWarn = console.warn;
+        console.error = function() {
+          var str = Array.prototype.join.call(arguments, ' ');
+          if (str.indexOf('No available adapters') !== -1 || str.indexOf('OTS parsing error') !== -1) return;
+          origError.apply(console, arguments);
+        };
+        console.warn = function() {
+          var str = Array.prototype.join.call(arguments, ' ');
+          if (str.indexOf('No available adapters') !== -1 || str.indexOf('OTS parsing error') !== -1) return;
+          origWarn.apply(console, arguments);
+        };
+      })();
+    </script>
+
     <!-- Estilos críticos iniciales para pintura inmediata (FCP instantáneo) -->
     <style>
       body { background-color: #FAF9F6; color: #1C1917; margin: 0; font-family: system-ui, -apple-system, sans-serif; }
