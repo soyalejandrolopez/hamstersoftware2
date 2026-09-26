@@ -1,7 +1,6 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { useLocalizedData } from '../data/i18nData'
 import Icon from './Icons'
-import Turnstile from './Turnstile'
 
 const WHATSAPP_PHONE = '573025790274'
 
@@ -50,28 +49,12 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
   const [generatedMessage, setGeneratedMessage] = useState('')
   const [whatsappUrl, setWhatsappUrl] = useState('')
-  const [turnstileToken, setTurnstileToken] = useState('')
-  const turnstileRef = useRef(null)
   const { serviceCategories, site, t, isEn } = useLocalizedData()
 
   const update = (field) => (e) => setForm((f) => ({ ...f, [field]: e.target.value }))
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
-    // Enviar verificación en segundo plano si existe token de Turnstile (no-bloqueante)
-    if (turnstileToken && turnstileToken !== 'local-development-turnstile-verified') {
-      try {
-        fetch('/api/verify', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ token: turnstileToken }),
-        }).catch(() => {})
-      } catch {
-        // no bloqueante
-      }
-    }
-
     const msg = buildWhatsAppMessage(form, isEn)
     const url = buildWhatsAppUrl(msg)
     setGeneratedMessage(msg)
@@ -88,8 +71,6 @@ export default function ContactForm() {
     setForm(initialForm)
     setGeneratedMessage('')
     setWhatsappUrl('')
-    setTurnstileToken('')
-    turnstileRef.current?.reset()
   }
 
   if (submitted) {
@@ -235,25 +216,6 @@ export default function ContactForm() {
         </div>
       </div>
 
-      {/* Cloudflare Turnstile CAPTCHA Anti-Bot */}
-      <div className="mt-5 border-t border-ink-200 pt-4">
-        <div className="inline-block">
-          <Turnstile
-            ref={turnstileRef}
-            onSuccess={(token) => {
-              setTurnstileToken(token)
-            }}
-            onError={() => {
-              setTurnstileToken('')
-            }}
-            onExpire={() => {
-              setTurnstileToken('')
-            }}
-            theme="light"
-          />
-        </div>
-      </div>
-
       <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <button type="submit" className="btn-primary w-full sm:w-auto inline-flex items-center justify-center gap-2">
           <Icon name="whatsapp" className="h-4 w-4" />
@@ -274,4 +236,3 @@ export default function ContactForm() {
     </form>
   )
 }
-

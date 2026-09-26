@@ -2,9 +2,6 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "hamstersoftware2",
   "compatibility_date": "2026-09-25",
-  "vars": {
-    "VITE_CLOUDFLARE_TURNSTILE_SITE_KEY": "0x4AAAAAAFEbdtYKiSpRfp3K"
-  },
   "build": {
     "command": "npm run build"
   },
