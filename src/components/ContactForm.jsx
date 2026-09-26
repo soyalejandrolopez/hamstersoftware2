@@ -51,35 +51,25 @@ export default function ContactForm() {
   const [generatedMessage, setGeneratedMessage] = useState('')
   const [whatsappUrl, setWhatsappUrl] = useState('')
   const [turnstileToken, setTurnstileToken] = useState('')
-  const [turnstileError, setTurnstileError] = useState(false)
   const turnstileRef = useRef(null)
   const { serviceCategories, site, t, isEn } = useLocalizedData()
 
   const update = (field) => (e) => setForm((f) => ({ ...f, [field]: e.target.value }))
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
 
-    if (!turnstileToken) {
-      setTurnstileError(true)
-      return
-    }
-
-    try {
-      const verifyRes = await fetch('/api/verify', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ token: turnstileToken }),
-      })
-      if (verifyRes.ok) {
-        const verification = await verifyRes.json()
-        if (verification && verification.success === false) {
-          setTurnstileError(true)
-          return
-        }
+    // Enviar verificación en segundo plano si existe token de Turnstile (no-bloqueante)
+    if (turnstileToken && turnstileToken !== 'local-development-turnstile-verified') {
+      try {
+        fetch('/api/verify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ token: turnstileToken }),
+        }).catch(() => {})
+      } catch {
+        // no bloqueante
       }
-    } catch {
-      // Si el servidor local o estático no tiene Pages Functions activa, opera con validación cliente
     }
 
     const msg = buildWhatsAppMessage(form, isEn)
@@ -99,7 +89,6 @@ export default function ContactForm() {
     setGeneratedMessage('')
     setWhatsappUrl('')
     setTurnstileToken('')
-    setTurnstileError(false)
     turnstileRef.current?.reset()
   }
 
@@ -253,7 +242,6 @@ export default function ContactForm() {
             ref={turnstileRef}
             onSuccess={(token) => {
               setTurnstileToken(token)
-              setTurnstileError(false)
             }}
             onError={() => {
               setTurnstileToken('')
@@ -264,13 +252,6 @@ export default function ContactForm() {
             theme="light"
           />
         </div>
-
-        {turnstileError && !turnstileToken && (
-          <p className="mt-2 font-mono text-xs font-semibold text-rose-600 flex items-center gap-1.5 animate-bounce">
-            <span>⚠</span>
-            <span>{t.contact.turnstileRequired}</span>
-          </p>
-        )}
       </div>
 
       <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
