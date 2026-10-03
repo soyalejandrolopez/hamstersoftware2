@@ -7,7 +7,7 @@
     "dev": "vite",
     "test": "node scripts/test-blog.mjs",
     "build": "vite build",
-    "build:single": "vite build && node scripts/inline-dist.mjs",
+    "build:single": "npm run build",
     "build:cpanel": "npm run build && (cd dist && zip -FSr ../cpanel-deploy.zip . -x '__MACOSX*' -x '*/.DS_Store' -x '.DS_Store')",
     "preview": "vite preview"
   },

@@ -48,7 +48,7 @@ hamstersoftware2/
 ├── tailwind.config.js         # Configuración de tema, colores y tipografías
 ├── postcss.config.js          # Plugins de PostCSS (Tailwind, Autoprefixer)
 ├── scripts/
-│   └── inline-dist.mjs        # Script de compilación bundle monorarchivo
+│   └── test-blog.mjs          # Ejecutor de pruebas del blog
 ├── public/
 │   ├── favicon.svg            # Favicon corporativo SVG
 │   ├── manifest.json          # Web App Manifest PWA
@@ -120,10 +120,12 @@ Ejecuta `npm test` para verificar enlaces de tarjetas, navegación, pie de pági
 | :--- | :--- |
 | `npm run dev` | Inicia el servidor de desarrollo local con Hot Module Replacement (HMR). |
 | `npm test` | Verifica las rutas y la presentación de todos los artículos en ES / EN. |
-| `npm run build` | Compila los assets de producción optimizados en el directorio `dist/`. |
+| `npm run build` | Genera `dist/index.html` y archivos CSS / JS independientes en `dist/assets/`. |
 | `npm run preview` | Previsualiza localmente el resultado de la carpeta `dist/`. |
-| `npm run build:single` | Compila y genera un artefacto monorarchivo (`inline-dist.mjs`). |
+| `npm run build:single` | Alias de compatibilidad de `build`; también mantiene CSS / JS en archivos separados. |
 | `npm run build:cpanel` | Compila la app y empaqueta un archivo ZIP listo para desplegar en cPanel (`cpanel-deploy.zip`). |
+
+Todos los comandos de compilación conservan el CSS y JavaScript de la aplicación en archivos independientes. El HTML solo referencia esos bundles. Para desplegar, sube el contenido completo de `dist/`, incluyendo `assets/` e `images/`.
 
 ---
 
