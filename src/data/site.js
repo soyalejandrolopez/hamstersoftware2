@@ -18,11 +18,11 @@ export const site = {
 
 export const navLinks = [
   { label: 'Inicio', to: '/' },
-  { label: 'Soluciones', to: '/soluciones' },
   { label: 'Servicios', to: '/servicios' },
   { label: 'Industrias', to: '/industrias' },
   { label: 'Proceso', to: '/proceso' },
   { label: 'Contacto', to: '/contacto' },
+  { label: 'Blog', to: '/blog' },
 ]
 
 export const hero = {
@@ -61,7 +61,7 @@ export const features = [
 export const stats = [
   { value: 50, suffix: '+', label: 'Proyectos Entregados' },
   { value: 30, suffix: '+', label: 'Clientes Satisfechos' },
-  { value: 22, suffix: '', label: 'Servicios Especializados' },
+  { value: 3, suffix: '', label: 'Servicios de Desarrollo' },
   { value: 100, suffix: '%', label: 'Tasa de Satisfacción' },
 ]
 
@@ -322,4 +322,3 @@ export const successCases = [
     ],
   },
 ]
-

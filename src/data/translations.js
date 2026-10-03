@@ -7,7 +7,7 @@ export const t = {
     // Navigation & Common
     nav: {
       home: 'Inicio',
-      solutions: 'Soluciones',
+      solutions: 'Blog',
       services: 'Servicios',
       industries: 'Industrias',
       process: 'Proceso',
@@ -77,34 +77,51 @@ export const t = {
     // Services Section & Page
     services: {
       eyebrow: 'Nuestros Servicios',
-      title: 'Todo lo que necesitas para impulsar tu negocio',
+      title: 'Desarrollo para web, móvil y escritorio',
       description:
-        'Desde pipelines de datos hasta apps móviles, cubrimos el ciclo completo de tu transformación digital.',
+        'Diseñamos y desarrollamos aplicaciones para los dispositivos y plataformas que utiliza tu negocio.',
       servicesCount: 'servicios',
       viewCategory: 'Ver categoría',
       viewAll: 'Ver todos los servicios',
-      specializedCount: '22 especializados',
+      specializedCount: '3 especializados',
       pageEyebrow: 'Servicios',
-      pageTitle: '22 servicios especializados para tu empresa',
+      pageTitle: 'Desarrollo web, móvil y de escritorio',
       pageDescription:
-        'Organizados en 5 áreas de especialidad: datos e IA, IA generativa, web y móvil, cloud y operaciones, y procesos de negocio. Cada servicio incluye arquitectura, desarrollo e implementación completa.',
+        'Tres servicios de desarrollo para tu empresa. Los temas de datos, inteligencia artificial, cloud y automatización ahora forman parte de nuestro blog.',
       ctaContact: 'Solicitar este servicio',
     },
 
-    // Solutions Section & Page
+    // Blog preview and index
     solutions: {
-      eyebrow: 'Soluciones',
-      title: 'Soluciones que transforman negocios',
+      eyebrow: 'Blog',
+      title: 'Ideas y tecnología para tu negocio',
       description:
-        'Productos y plataformas listas para implementar en tu empresa, construidas con la energía y dedicación de un hámster en su rueda.',
-      viewAll: 'Ver todas las soluciones',
-      pageEyebrow: 'Soluciones',
-      pageTitle: 'Plataformas y productos listos para implementar',
+        'Explora nuestras soluciones en artículos sobre software, infraestructura y herramientas para distintos sectores.',
+      viewAll: 'Ver todos los artículos',
+      pageEyebrow: 'Blog',
+      pageTitle: 'Blog de Hamster Software',
       pageDescription:
-        '18 soluciones diseñadas y optimizadas para resolver necesidades de negocio inmediatas.',
-      readyCount: '18 soluciones listas.',
-      readySub: 'Cada una con arquitectura modular lista para adaptarse a tu flujo de trabajo.',
+        'Artículos sobre software, datos, inteligencia artificial, cloud y automatización: cómo funcionan y cómo pueden aplicarse a tu negocio. Disponibles en español e inglés.',
       exploreCta: 'Consultar solución',
+    },
+
+    blog: {
+      eyebrow: 'Tecnología aplicada',
+      articles: 'artículos',
+      article: 'Artículo',
+      articleList: 'Artículos del blog',
+      languages: 'Español / English',
+      back: 'Volver al blog',
+      readingTime: 'min de lectura',
+      features: 'Funciones principales',
+      benefits: 'Beneficios para tu operación',
+      example: 'Ejemplo de uso',
+      implementation: 'Cómo lo implementamos',
+      projectEyebrow: 'De la idea al proyecto',
+      projectTitle: '¿Lo aplicamos a tu negocio?',
+      projectDescription: 'Cuéntanos qué necesitas. Podemos definir el alcance, las integraciones y los pasos para desarrollar una solución adaptada a tu operación.',
+      contact: 'Hablemos de tu proyecto',
+      moreArticles: 'Sigue explorando',
     },
 
     // Cybersecurity & CVE Section
@@ -208,7 +225,7 @@ export const t = {
     footer: {
       navTitle: 'Navegación',
       servicesTitle: 'Servicios',
-      solutionsTitle: 'Soluciones',
+      solutionsTitle: 'Blog',
       rights: 'Todos los derechos reservados.',
     },
 
@@ -226,7 +243,7 @@ export const t = {
     // Navigation & Common
     nav: {
       home: 'Home',
-      solutions: 'Solutions',
+      solutions: 'Blog',
       services: 'Services',
       industries: 'Industries',
       process: 'Process',
@@ -296,34 +313,51 @@ export const t = {
     // Services Section & Page
     services: {
       eyebrow: 'Our Services',
-      title: 'Everything your business needs to scale',
+      title: 'Development for web, mobile, and desktop',
       description:
-        'From high-throughput data pipelines to mobile apps, we support the full lifecycle of your digital transformation.',
+        'We design and develop applications for the devices and platforms your business uses.',
       servicesCount: 'services',
       viewCategory: 'View category',
       viewAll: 'View all services',
-      specializedCount: '22 specialized',
+      specializedCount: '3 specialized',
       pageEyebrow: 'Services',
-      pageTitle: '22 specialized services for your business',
+      pageTitle: 'Web, mobile, and desktop development',
       pageDescription:
-        'Structured across 5 key disciplines: Data & AI, Generative AI & LLMs, Web & Mobile, Cloud & DevOps, and Business Process Automation. Every service includes end-to-end architecture and implementation.',
+        'Three development services for your business. Data, artificial intelligence, cloud, and automation topics are now part of our blog.',
       ctaContact: 'Request this service',
     },
 
-    // Solutions Section & Page
+    // Blog preview and index
     solutions: {
-      eyebrow: 'Solutions',
-      title: 'Solutions engineered to transform business',
+      eyebrow: 'Blog',
+      title: 'Ideas and technology for your business',
       description:
-        'Production-ready platforms and modular products built with the energy and dedication of a hamster on its wheel.',
-      viewAll: 'View all solutions',
-      pageEyebrow: 'Solutions',
-      pageTitle: 'Enterprise platforms ready to deploy',
+        'Explore our solutions through articles about software, infrastructure, and tools for different industries.',
+      viewAll: 'View all articles',
+      pageEyebrow: 'Blog',
+      pageTitle: 'Hamster Software Blog',
       pageDescription:
-        '18 battle-tested solutions engineered to solve immediate industry and operational challenges.',
-      readyCount: '18 turnkey solutions.',
-      readySub: 'Each with modular architecture ready to integrate into your custom workflow.',
+        'Articles about software, data, artificial intelligence, cloud, and automation: how they work and how they can support your business. Available in English and Spanish.',
       exploreCta: 'Request consultation',
+    },
+
+    blog: {
+      eyebrow: 'Technology in practice',
+      articles: 'articles',
+      article: 'Article',
+      articleList: 'Blog articles',
+      languages: 'English / Español',
+      back: 'Back to blog',
+      readingTime: 'min read',
+      features: 'Key features',
+      benefits: 'Benefits for your operations',
+      example: 'Example use case',
+      implementation: 'How we implement it',
+      projectEyebrow: 'From idea to project',
+      projectTitle: 'Let’s bring it to your business',
+      projectDescription: 'Tell us what you need. We can define the scope, integrations, and steps to develop a solution tailored to your operations.',
+      contact: 'Discuss your project',
+      moreArticles: 'Keep exploring',
     },
 
     // Cybersecurity & CVE Section
@@ -427,7 +461,7 @@ export const t = {
     footer: {
       navTitle: 'Navigation',
       servicesTitle: 'Services',
-      solutionsTitle: 'Solutions',
+      solutionsTitle: 'Blog',
       rights: 'All rights reserved.',
     },
 

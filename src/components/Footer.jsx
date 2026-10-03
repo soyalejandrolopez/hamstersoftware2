@@ -86,14 +86,14 @@ export default function Footer() {
           <ul className="mt-4 space-y-2.5">
             {topSolutions.map((s) => (
               <li key={s.num}>
-                <Link to="/soluciones" className="text-sm text-ink-300 transition hover:text-paper">
+                <Link to={`/blog/${s.slug}`} className="text-sm text-ink-300 transition hover:text-paper">
                   {s.name}
                 </Link>
               </li>
             ))}
             <li>
               <Link
-                to="/soluciones"
+                to="/blog"
                 className="font-mono text-xs font-semibold uppercase tracking-wider text-brand-400 hover:text-brand-300"
               >
                 {t.solutions.viewAll} →

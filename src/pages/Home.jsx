@@ -42,6 +42,7 @@ export default function Home() {
     processSteps,
     successCases,
     serviceCategories,
+    solutions,
     industryGroups,
     securityPoints,
   } = useLocalizedData()
@@ -201,17 +202,17 @@ export default function Home() {
             ))}
             <Reveal delay={160} className="h-full">
               <Link
-                to="/servicios"
+                to="/blog"
                 className="group flex h-full min-h-[220px] flex-col items-center justify-center border-2 border-dashed border-ink-300 bg-transparent p-6 text-center transition hover:border-ink-900 hover:bg-brand-50"
               >
                 <span className="font-display text-4xl font-black text-ink-300 transition group-hover:text-brand-600">
-                  +16
+                  {solutions.length}
                 </span>
                 <h3 className="mt-3 font-display text-xl font-black text-ink-950">
-                  {t.services.viewAll}
+                  {t.solutions.viewAll}
                 </h3>
                 <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-500">
-                  {t.services.specializedCount}
+                  {t.blog.articles} · ES / EN
                 </p>
               </Link>
             </Reveal>
@@ -219,7 +220,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ SOLUCIONES (PREVIEW) ============ */}
+      {/* ============ BLOG (PREVIEW) ============ */}
       <section className="container-hs section-pad">
         <SectionHeading
           eyebrow={t.solutions.eyebrow}
@@ -228,7 +229,7 @@ export default function Home() {
         />
         <SolutionsGrid limit={6} />
         <Reveal className="mt-10 text-center">
-          <Link to="/soluciones" className="btn-secondary">
+          <Link to="/blog" className="btn-secondary">
             {t.solutions.viewAll}
             <Icon name="arrowRight" className="h-4 w-4" />
           </Link>
@@ -277,7 +278,7 @@ export default function Home() {
               ))}
             </ul>
             <Link
-              to="/soluciones"
+              to="/blog/vulnerabilidades"
               className="mt-8 inline-flex items-center gap-2 border-2 border-paper bg-paper px-5 py-3 text-sm font-semibold text-ink-950 transition-all hover:-translate-y-0.5 hover:bg-brand-500 hover:border-brand-500 hover:text-white hover:shadow-hard-white"
             >
               {t.security.exploreBtn}

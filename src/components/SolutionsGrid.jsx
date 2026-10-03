@@ -16,20 +16,20 @@ export default function SolutionsGrid({ limit }) {
               <span className="font-display text-5xl font-black text-ink-200 transition group-hover:text-brand-500">
                 {sol.num}
               </span>
-              <span className="badge mt-1">{sol.tag}</span>
+              <span className="badge mt-1 max-w-[70%]">{sol.tag}</span>
             </div>
             <h3 className="mt-4 font-display text-xl font-black text-ink-950">{sol.name}</h3>
             <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-600">{sol.description}</p>
             <Link
-              to="/contacto"
-              className="btn-ghost mt-4 self-start"
+              to={`/blog/${sol.slug}`}
+              className="btn-ghost mt-4 self-start focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-500"
               aria-label={
                 isEn
-                  ? `Request quote for ${sol.name}`
-                  : `Solicitar cotización de ${sol.name}`
+                  ? `Read article: ${sol.name}`
+                  : `Leer artículo: ${sol.name}`
               }
             >
-              {isEn ? 'Learn more' : 'Ver más'}
+              {isEn ? 'Read article' : 'Leer artículo'}
               <Icon name="arrowUpRight" className="h-3.5 w-3.5" />
             </Link>
           </article>

@@ -15,6 +15,7 @@ Sitio web corporativo y portafolio interactivo de **Hamster Software**, agencia 
 ## 🚀 Características Principales
 
 - **Arquitectura Bilingüe Nativa (ES / EN):** Contexto reactivo global (`LanguageContext`) con traducciones completas de interfaz, catálogo de servicios, casos de éxito y flujos de contacto.
+- **Blog (37 artículos ES / EN):** Las 18 soluciones y 19 temas trasladados desde Servicios tienen páginas con funcionalidades, beneficios, un ejemplo de uso y su proceso de implementación. El selector de idioma conserva el artículo abierto.
 - **Activos Multimedia 100% Locales (Offline-First):** Todas las capturas de pantalla y recursos gráficos de proyectos están integrados localmente bajo `public/images/`, garantizando tiempos de carga óptimos y cero dependencias de CDNs de terceros.
 - **Enrutamiento Estático Resiliente (`HashRouter`):** Compatibilidad total con hosting estático, cPanel, Vercel, Netlify o GitHub Pages sin requerir configuraciones de reescritura de URLs en el servidor web.
 - **Menú Contextual Personalizado:** Menú contextual interactivo accesible con clic derecho con accesos directos al portafolio, cambio de idioma, contacto directo vía WhatsApp y utilidades de navegación.
@@ -62,9 +63,13 @@ hamstersoftware2/
     │   ├── site.js            # Contenido, servicios y casos de éxito en Español
     │   ├── site.en.js         # Contenido, servicios y casos de éxito en Inglés
     │   ├── cves.js            # Datos y telemetría de seguridad en Español
-    │   └── cves.en.js         # Datos y telemetría de seguridad en Inglés
+    │   ├── cves.en.js         # Datos y telemetría de seguridad en Inglés
+    │   ├── solutions.js       # Resúmenes y slugs del blog en Español
+    │   ├── solutions.en.js    # Los mismos temas y slugs en Inglés
+    │   ├── blogContent.js     # Contenido de las soluciones y unión del contenido del blog
+    │   └── serviceArticles.js # Los 19 servicios convertidos en artículos bilingües
     ├── components/            # Componentes reutilizables (Navbar, Footer, ContextMenu, etc.)
-    └── pages/                 # Vistas principales (Home, Services, Solutions, Industries, Process, Contact)
+    └── pages/                 # Vistas principales y Blog / BlogArticle
 ```
 
 ---
@@ -95,7 +100,17 @@ npm install
 npm run dev
 ```
 
-El servidor local iniciará en `http://localhost:5173/`.
+El servidor local iniciará en `http://localhost:3000/`.
+
+### Blog y edición de artículos
+
+El índice está en `/#/blog` y cada artículo en `/#/blog/<slug>`; `/#/soluciones` redirige al blog para conservar los enlaces anteriores. Los slugs son compartidos entre idiomas.
+
+Edita los títulos, etiquetas y resúmenes de las 18 soluciones en `src/data/solutions.js` y `src/data/solutions.en.js`, y su contenido completo en `src/data/blogContent.js`. Los 19 artículos trasladados desde Servicios se editan en `src/data/serviceArticles.js`: cada entrada reúne su slug, número y versiones `es` y `en`, con resumen y contenido. Cada versión incluye introducción, funcionalidades, beneficios, ejemplo e implementación. Los textos de la interfaz se encuentran en `src/data/translations.js`.
+
+La página Servicios conserva únicamente Web, Móvil y Escritorio. Datos e IA, IA Generativa, Cloud y Operaciones TI, y Procesos de Negocio se encuentran en el blog.
+
+Ejecuta `npm test` para verificar enlaces de tarjetas, navegación, pie de página, índice, las 74 versiones de los artículos, el traslado de los 19 temas y las rutas inexistentes. Después ejecuta `npm run build` para verificar la compilación de producción.
 
 ---
 
@@ -104,6 +119,7 @@ El servidor local iniciará en `http://localhost:5173/`.
 | Comando | Descripción |
 | :--- | :--- |
 | `npm run dev` | Inicia el servidor de desarrollo local con Hot Module Replacement (HMR). |
+| `npm test` | Verifica las rutas y la presentación de todos los artículos en ES / EN. |
 | `npm run build` | Compila los assets de producción optimizados en el directorio `dist/`. |
 | `npm run preview` | Previsualiza localmente el resultado de la carpeta `dist/`. |
 | `npm run build:single` | Compila y genera un artefacto monorarchivo (`inline-dist.mjs`). |

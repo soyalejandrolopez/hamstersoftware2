@@ -1,132 +1,133 @@
-// ============================================================
-// SOLUTIONS (ENGLISH) — Products & platforms ready to deploy.
-// ============================================================
+// BLOG — Solution and service article summaries in English.
+// Shared slugs preserve the article when switching languages.
+import { serviceArticles } from './serviceArticles'
 
 export const solutionsEn = [
   {
-    num: '01',
-    name: 'Vulnerability Assessment',
-    tag: 'Pentesting & Security Audits',
-    description:
-      'Rigorous security audits and penetration testing to identify and remediate vulnerabilities before threat actors exploit them.',
+    "num": "01",
+    "slug": "vulnerabilidades",
+    "name": "Vulnerability Assessment",
+    "tag": "Pentesting & Security Audits",
+    "description": "Security audits and penetration tests to identify and address vulnerabilities before attackers exploit them."
   },
   {
-    num: '02',
-    name: 'Seismic Monitoring Network',
-    tag: 'Real-time Seismic Stations',
-    description:
-      'Telemetry-connected seismic station networks streaming real-time data for early warning, analysis, and tectonic visualization.',
+    "num": "02",
+    "slug": "monitoreo-sismico",
+    "name": "Seismic Monitoring",
+    "tag": "Real-Time Seismic Stations",
+    "description": "Seismic station networks with real-time data to report, analyze, and visualize seismic activity."
   },
   {
-    num: '03',
-    name: 'Live Sports Scoring Platform',
-    tag: 'Real-Time Score Engine',
-    description:
-      'High-concurrency live sports platform delivering real-time scores, player statistics, and push notifications for leagues and tournaments.',
+    "num": "03",
+    "slug": "resultados-deportivos",
+    "name": "Live Sports Scores",
+    "tag": "Live Score Platform",
+    "description": "A live score platform with real-time results, statistics, and notifications for leagues and tournaments."
   },
   {
-    num: '04',
-    name: 'Sales Analytics & Intelligence',
-    tag: 'Dashboards & Revenue Metrics',
-    description:
-      'Executive dashboards and predictive revenue models that convert raw sales transactions into high-impact operational decisions.',
+    "num": "04",
+    "slug": "analisis-ventas",
+    "name": "Sales Analytics",
+    "tag": "Dashboards & Metrics",
+    "description": "Dashboards and metrics that turn your sales data into actionable business decisions."
   },
   {
-    num: '05',
-    name: 'Audio Streaming Infrastructure',
-    tag: 'High-Availability Audio Delivery',
-    description:
-      'Low-latency audio streaming architecture for live radio broadcasting and on-demand podcasts with 99.99% uptime.',
+    "num": "05",
+    "slug": "radio-streaming",
+    "name": "Radio Streaming",
+    "tag": "Audio Infrastructure",
+    "description": "Audio infrastructure for live and on-demand broadcasting, designed for high availability."
   },
   {
-    num: '06',
-    name: 'Telemedicine & Clinical Records',
-    tag: 'Virtual Healthcare Platform',
-    description:
-      'HIPAA-ready telehealth platform enabling encrypted video consultations, electronic health records (EHR), and e-prescriptions.',
+    "num": "06",
+    "slug": "telemedicina",
+    "name": "Telemedicine Platform",
+    "tag": "Consultations & Patient Records",
+    "description": "A virtual medical consultation platform with secure digital patient records."
   },
   {
-    num: '07',
-    name: 'Ticketing & Reservation Engine',
-    tag: 'Advanced Box Office & Seating',
-    description:
-      'High-throughput ticketing engine with interactive seat selection, dynamic pricing, and QR validation for events and transit.',
+    "num": "07",
+    "slug": "reserva-boletos",
+    "name": "Reservations & Ticketing",
+    "tag": "Advanced Ticketing",
+    "description": "Advanced ticketing for events, transportation, and live entertainment."
   },
   {
-    num: '08',
-    name: 'Odoo CRM & ERP Implementation',
-    tag: 'Enterprise ERP Customization',
-    description:
-      'Turnkey implementation and custom module development for Odoo, unifying CRM, pipeline, inventory, and automated accounting.',
+    "num": "08",
+    "slug": "odoo-crm",
+    "name": "Odoo CRM & ERP",
+    "tag": "ERP Implementation",
+    "description": "Odoo implementation and customization to connect CRM, sales, inventory, and accounting."
   },
   {
-    num: '09',
-    name: 'Real Estate & Vehicle Marketplace',
-    tag: 'Classifieds & Rental Portal',
-    description:
-      'Modern multi-category marketplace featuring direct WhatsApp buyer-seller connection, advanced parametric search, and virtual tours.',
+    "num": "09",
+    "slug": "plugins-wordpress",
+    "name": "WordPress Plugins",
+    "tag": "Custom Development",
+    "description": "Custom WordPress plugins and themes to extend your website with the functionality your business needs."
   },
   {
-    num: '10',
-    name: 'Automated Invoicing & Tax Sync',
-    tag: 'Electronic Billing Compliance',
-    description:
-      'Automated integration with tax authorities (DIAN / regional fiscal services) for compliant, real-time electronic invoicing.',
+    "num": "10",
+    "slug": "internet-cosas",
+    "name": "IoT: Internet of Things",
+    "tag": "Hardware & Sensors",
+    "description": "Connected hardware and sensors working with software to monitor and automate operations in real time."
   },
   {
-    num: '11',
-    name: 'Field Fleet & Asset Telemetry',
-    tag: 'IoT Tracking & Route Logistics',
-    description:
-      'Real-time GPS fleet tracking, fuel consumption analytics, automated maintenance alerts, and driver safety scoring.',
+    "num": "11",
+    "slug": "precios-medicamentos",
+    "name": "Medication Price Comparison",
+    "tag": "Pharmacy Price Comparator",
+    "description": "A pharmacy comparison platform that brings together updated medication prices from multiple pharmacies."
   },
   {
-    num: '12',
-    name: 'Intelligent Knowledge Base (RAG)',
-    tag: 'Enterprise LLM Search',
-    description:
-      'Internal AI search engine that indexes internal company documents, manuals, and policies for instant, cited conversational answers.',
+    "num": "12",
+    "slug": "openclaw",
+    "name": "OpenClaw",
+    "tag": "Arcade Hardware Control",
+    "description": "Arcade hardware control software for machines, games, and token management."
   },
   {
-    num: '13',
-    name: 'Restaurant POS & Kitchen Display',
-    tag: 'Hospitality Management',
-    description:
-      'Touch-first point-of-sale system connected with live kitchen display screens (KDS), table ordering, and delivery app aggregators.',
+    "num": "13",
+    "slug": "reserva-barberia",
+    "name": "Barbershop Booking",
+    "tag": "Barbershop & Salon Management",
+    "description": "A booking system for barbershops and hair salons with automatic appointment reminders."
   },
   {
-    num: '14',
-    name: 'Automated Document OCR Pipeline',
-    tag: 'Intelligent Document Processing',
-    description:
-      'Automated extraction of financial data from physical receipts, invoices, identity documents, and contracts with 99%+ accuracy.',
+    "num": "14",
+    "slug": "limpieza-facial",
+    "name": "Facial Care Management",
+    "tag": "Spa & Aesthetic Clinic Systems",
+    "description": "Appointment, client record, and treatment management for spas and aesthetic clinics."
   },
   {
-    num: '15',
-    name: 'Academic & Learning Management (LMS)',
-    tag: 'Education & Training Suite',
-    description:
-      'Modern online learning campus with video lessons, automated quiz grading, progress tracking, and verifiable certificates.',
+    "num": "15",
+    "slug": "lms-moodle",
+    "name": "LMS & Moodle Platforms",
+    "tag": "Courses for Schools & Businesses",
+    "description": "Learning platforms for schools and businesses using Moodle and custom development."
   },
   {
-    num: '16',
-    name: 'Subscription & Membership Billing',
-    tag: 'Recurring Revenue Engine',
-    description:
-      'Automated recurring subscription management with dunning flows, prorated upgrades, self-serve client portals, and multi-currency billing.',
+    "num": "16",
+    "slug": "alquiler-lavadoras",
+    "name": "Washing Machine Rentals",
+    "tag": "Rental Management",
+    "description": "Washing machine rental management covering equipment, payments, contracts, and maintenance."
   },
   {
-    num: '17',
-    name: 'Industrial IoT Sensor Dashboard',
-    tag: 'Hardware Telemetry & SCADA',
-    description:
-      'Cloud monitoring dashboard displaying temperature, pressure, vibration, and energy consumption from factory floor IoT sensors.',
+    "num": "17",
+    "slug": "infraestructura-iaas",
+    "name": "IaaS Infrastructure",
+    "tag": "Proxmox & ZSVirt Virtualization",
+    "description": "Infrastructure as a service and enterprise virtualization with Proxmox VE and ZSVirt, clustering, and high availability."
   },
   {
-    num: '18',
-    name: 'Customer Support Omnichannel Hub',
-    tag: 'Unified Inbox & AI Co-pilot',
-    description:
-      'Single unified inbox consolidating WhatsApp, email, Instagram DMs, and live chat, boosted by AI suggested replies and team routing.',
+    "num": "18",
+    "slug": "control-imei-posventa",
+    "name": "IMEI Tracking & After-Sales Service",
+    "tag": "Traceability, Warranties & Repairs",
+    "description": "IMEI tracking, device traceability, warranty management, repair orders, and after-sales support in one system."
   },
+  ...serviceArticles.map(({ num, slug, en }) => ({ num, slug, name: en.name, tag: en.tag, description: en.description })),
 ]

@@ -16,11 +16,11 @@ export const siteEn = {
 
 export const navLinksEn = [
   { label: 'Home', to: '/' },
-  { label: 'Solutions', to: '/soluciones' },
   { label: 'Services', to: '/servicios' },
   { label: 'Industries', to: '/industrias' },
   { label: 'Process', to: '/proceso' },
   { label: 'Contact', to: '/contacto' },
+  { label: 'Blog', to: '/blog' },
 ]
 
 export const heroEn = {
@@ -59,7 +59,7 @@ export const featuresEn = [
 export const statsEn = [
   { value: 50, suffix: '+', label: 'Projects Delivered' },
   { value: 30, suffix: '+', label: 'Satisfied Clients' },
-  { value: 22, suffix: '', label: 'Specialized Services' },
+  { value: 3, suffix: '', label: 'Development Services' },
   { value: 100, suffix: '%', label: 'Client Satisfaction' },
 ]
 

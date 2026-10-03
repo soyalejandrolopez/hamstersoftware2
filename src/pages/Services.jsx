@@ -17,6 +17,11 @@ export default function Services() {
             title={t.services.pageTitle}
             description={t.services.pageDescription}
           />
+          <div className="mt-6 text-center">
+            <Link to="/blog" className="btn-ghost">
+              {t.solutions.viewAll}<Icon name="arrowRight" className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </section>
 

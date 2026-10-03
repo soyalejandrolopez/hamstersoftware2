@@ -1,10 +1,13 @@
 // ============================================================
-// SOLUCIONES — Productos y plataformas listas para implementar.
+// BLOG — Resúmenes de soluciones y servicios en español.
 // ============================================================
+
+import { serviceArticles } from './serviceArticles'
 
 export const solutions = [
   {
     num: '01',
+    slug: 'vulnerabilidades',
     name: 'Vulnerabilidades',
     tag: 'Pentesting y auditorías',
     description:
@@ -12,6 +15,7 @@ export const solutions = [
   },
   {
     num: '02',
+    slug: 'monitoreo-sismico',
     name: 'Monitoreo Sísmico',
     tag: 'Estaciones sísmicas en tiempo real',
     description:
@@ -19,6 +23,7 @@ export const solutions = [
   },
   {
     num: '03',
+    slug: 'resultados-deportivos',
     name: 'Resultados Deportivos',
     tag: 'Plataforma live score',
     description:
@@ -26,6 +31,7 @@ export const solutions = [
   },
   {
     num: '04',
+    slug: 'analisis-ventas',
     name: 'Análisis de Ventas',
     tag: 'Dashboards y métricas',
     description:
@@ -33,6 +39,7 @@ export const solutions = [
   },
   {
     num: '05',
+    slug: 'radio-streaming',
     name: 'Radio Streaming',
     tag: 'Infraestructura de audio',
     description:
@@ -40,6 +47,7 @@ export const solutions = [
   },
   {
     num: '06',
+    slug: 'telemedicina',
     name: 'Sistema Telemedicina',
     tag: 'Consultas y expedientes',
     description:
@@ -47,6 +55,7 @@ export const solutions = [
   },
   {
     num: '07',
+    slug: 'reserva-boletos',
     name: 'Reserva y Boletos',
     tag: 'Ticketing avanzado',
     description:
@@ -54,6 +63,7 @@ export const solutions = [
   },
   {
     num: '08',
+    slug: 'odoo-crm',
     name: 'Sistema Odoo CRM',
     tag: 'Implementación ERP',
     description:
@@ -61,6 +71,7 @@ export const solutions = [
   },
   {
     num: '09',
+    slug: 'plugins-wordpress',
     name: 'Plugins WordPress',
     tag: 'Desarrollo a medida',
     description:
@@ -68,6 +79,7 @@ export const solutions = [
   },
   {
     num: '10',
+    slug: 'internet-cosas',
     name: 'IoT Internet de las Cosas',
     tag: 'Hardware y sensores',
     description:
@@ -75,6 +87,7 @@ export const solutions = [
   },
   {
     num: '11',
+    slug: 'precios-medicamentos',
     name: 'Precios Medicamentos',
     tag: 'Comparador farmacéutico',
     description:
@@ -82,6 +95,7 @@ export const solutions = [
   },
   {
     num: '12',
+    slug: 'openclaw',
     name: 'OpenClaw',
     tag: 'Control de hardware arcade',
     description:
@@ -89,6 +103,7 @@ export const solutions = [
   },
   {
     num: '13',
+    slug: 'reserva-barberia',
     name: 'Reserva Barbería',
     tag: 'Sistema para peluquerías',
     description:
@@ -96,6 +111,7 @@ export const solutions = [
   },
   {
     num: '14',
+    slug: 'limpieza-facial',
     name: 'Limpieza Facial',
     tag: 'Sistema para spas y clínicas',
     description:
@@ -103,6 +119,7 @@ export const solutions = [
   },
   {
     num: '15',
+    slug: 'lms-moodle',
     name: 'Plataformas LMS y Moodle',
     tag: 'Cursos para escuelas y empresas',
     description:
@@ -110,6 +127,7 @@ export const solutions = [
   },
   {
     num: '16',
+    slug: 'alquiler-lavadoras',
     name: 'Alquiler Lavadoras',
     tag: 'Gestión de rentas',
     description:
@@ -117,6 +135,7 @@ export const solutions = [
   },
   {
     num: '17',
+    slug: 'infraestructura-iaas',
     name: 'Infraestructura IaaS',
     tag: 'Virtualización Proxmox & ZSVirt',
     description:
@@ -124,9 +143,11 @@ export const solutions = [
   },
   {
     num: '18',
+    slug: 'control-imei-posventa',
     name: 'Control IMEI & Posventa',
     tag: 'Trazabilidad, garantías y servicio técnico',
     description:
       'Sistema integral para control de números IMEI, trazabilidad de dispositivos, gestión de garantías, órdenes de servicio técnico y atención posventa.',
   },
+  ...serviceArticles.map(({ num, slug, es }) => ({ num, slug, name: es.name, tag: es.tag, description: es.description })),
 ]

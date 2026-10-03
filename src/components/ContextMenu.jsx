@@ -138,19 +138,19 @@ export default function ContextMenu() {
         >
           <span className="flex items-center gap-2">
             <span className="text-ink-400">/02</span>
-            <span>{isEn ? 'Services (22)' : 'Servicios (22)'}</span>
+            <span>{isEn ? 'Services' : 'Servicios'}</span>
           </span>
           <Icon name="arrowRight" className="h-3 w-3 text-ink-400" />
         </button>
 
         <button
           type="button"
-          onClick={() => handleNav('/soluciones')}
+          onClick={() => handleNav('/blog')}
           className="flex w-full items-center justify-between px-3 py-1.5 text-left text-ink-800 transition hover:bg-brand-50 hover:text-brand-600"
         >
           <span className="flex items-center gap-2">
             <span className="text-ink-400">/03</span>
-            <span>{isEn ? 'Solutions' : 'Soluciones'}</span>
+            <span>Blog</span>
           </span>
           <Icon name="arrowRight" className="h-3 w-3 text-ink-400" />
         </button>
